@@ -1,4 +1,7 @@
-def intcode(code, inp):
+def intcode(code, inp, mutate=False):
+	if not mutate:
+		code = list(code)
+		inp = list(inp)
 	outp = []
 	coro = intcode_raw(code)
 	try:
