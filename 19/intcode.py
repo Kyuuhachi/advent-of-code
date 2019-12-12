@@ -41,4 +41,3 @@ def intcode_raw(code):
 		elif code[i] % 100 == 8: s(3, g(1)==g(2)); i += 4
 		elif code[i] % 100 == 9: off += g(1); i += 2
 		else: raise ValueError(code[i])
-
