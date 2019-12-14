@@ -42,7 +42,7 @@ def intcode_play(code):
 def show(grid):
 	a = np.zeros(np.max(list(grid.keys()), axis=0)+(1,1), dtype=int)
 	for k, j in grid.items(): a[k] = j
-	print(a.T)
+	print(str(a.T).replace("0", "."))
 
 import sys
 import numpy as np
