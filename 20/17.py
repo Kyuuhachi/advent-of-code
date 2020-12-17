@@ -12,10 +12,10 @@ def life(p, n):
 		q = np.pad(p, 1, mode="wrap")
 		y = np.array([q[a] for a in shifts]).sum(axis=0)
 		p = (y == 3) | p & (y == 4)
-	return p.sum()
+	return p
 
 # Part 1
-print(life(np.pad(g[None], 6), 6))
+print(life(np.pad(g[None], 6), 6).sum())
 
 # Part 2
-print(life(np.pad(g[None,None], 6), 6))
+print(life(np.pad(g[None,None], 6), 6).sum())
