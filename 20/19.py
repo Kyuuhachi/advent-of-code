@@ -22,6 +22,6 @@ print(sum(bool(r.fullmatch(s)) for s in lines))
 
 w = a()
 w[8] = f"({w[42]}+)"
-w[11] = "(%s)" % "|".join(w[42]*n+w[31]*n for n in range(1, 8))
+w[11] = "(%s)" % ("(".join([w[42]]*8) + ")?".join([w[31]]*8))
 r = re.compile(w[0])
 print(sum(bool(r.fullmatch(s)) for s in lines))
