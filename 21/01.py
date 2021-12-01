@@ -1,4 +1,3 @@
-import pandas as pd
-n = pd.Series([int(x) for x in open("01.in")])
-print((n.diff() > 0).sum())
-print((n.rolling(3).sum().diff() > 0).sum())
+inp = [int(x) for x in open("01.in")]
+print(sum(a < b for a, b in zip(inp, inp[1:])))
+print(sum(a < b for a, b in zip(inp, inp[3:])))
