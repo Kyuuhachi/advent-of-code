@@ -43,23 +43,20 @@ def parse(bs: b.ConstBitStream) -> Tree:
 		return Op(ver, typ, sub)
 
 def eval_a(t: Tree) -> int:
-	if isinstance(t, Literal):
-		return t.ver
-	else:
-		return t.ver + sum(eval_a(c) for c in t.args)
+	match t:
+		case Literal(ver=ver):       return ver
+		case Op(ver=ver, args=args): return ver + sum(eval_a(c) for c in args)
 
 def eval_b(t: Tree) -> int:
-	if isinstance(t, Literal):
-		return t.val
-	else:
-		args = [eval_b(c) for c in t.args]
-		if t.typ == 0: return sum(args)
-		if t.typ == 1: return prod(args)
-		if t.typ == 2: return min(args)
-		if t.typ == 3: return max(args)
-		if t.typ == 5: return args[0] > args[1]
-		if t.typ == 6: return args[0] < args[1]
-		if t.typ == 7: return args[0] == args[1]
+	match t:
+		case Op(typ=0, args=args): return sum(eval_b(c) for c in args)
+		case Op(typ=1, args=args): return prod(eval_b(c) for c in args)
+		case Op(typ=2, args=args): return min(eval_b(c) for c in args)
+		case Op(typ=3, args=args): return max(eval_b(c) for c in args)
+		case Literal(val=val):     return val
+		case Op(typ=5, args=[a, b]): return eval_b(a) > eval_b(b)
+		case Op(typ=6, args=[a, b]): return eval_b(a) < eval_b(b)
+		case Op(typ=7, args=[a, b]): return eval_b(a) == eval_b(b)
 
 t = parse(b.ConstBitStream(i))
 print(eval_a(t))
