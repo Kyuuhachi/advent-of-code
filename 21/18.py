@@ -1,4 +1,3 @@
-import re
 import ast
 
 def parse(x):
