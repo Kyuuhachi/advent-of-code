@@ -46,14 +46,11 @@ def mag(xs):
 xs = reduce(inp[0])
 for ys in inp[1:]:
 	xs = reduce(["[", *xs, ",", *ys, "]"])
-	print("".join(map(str,xs)))
 print(mag(xs))
 
-m = 0
-for xs in inp:
-	for ys in inp:
-		if xs != ys:
-			zs = reduce(["[", *xs, ",", *ys, "]"])
-			if mag(zs) > m:
-				m = mag(zs)
-print(m)
+print(max(
+	mag(reduce(["[", *xs, ",", *ys, "]"]))
+	for xs in inp
+	for ys in inp
+	if xs != ys
+))
