@@ -34,12 +34,12 @@ def align(b, a):
 		sa = hash_(a)
 		for (ra, sra) in zip(a, sa):
 			for (rb, srb) in zip(b, sb):
-				if len(np.intersect1d(sa+srb-sra, sb, assume_unique=True)) >= 12:
+				if len(np.intersect1d(sa-sra, sb-srb, assume_unique=True)) >= 12:
 					return a+rb-ra, rb-ra
 
 inp2 = list(inp)
-done = []
-done.append(inp2.pop(0))
+done = [inp2.pop(0)]
+doneP = [np.array([0,0,0])]
 for a in done:
 	for i, b in reversed(list(enumerate(inp2))):
 		match align(a, b):
@@ -47,8 +47,12 @@ for a in done:
 				print(pos)
 				inp2.pop(i)
 				done.append(ali)
+				doneP.append(pos)
 assert not inp2, inp2
 
-for a in sorted({tuple(a) for b in done for a in b}):
-	print(a)
 print(len({tuple(a) for b in done for a in b}))
+print(max(
+	np.abs(a-b).sum()
+	for a in doneP
+	for b in doneP
+))
