@@ -18,23 +18,23 @@ def orient(a):
 		a*[[-1,-1,+1]],
 		a*[[-1,+1,-1]],
 	]:
-		yield +b[:,[0,1,2]]
-		yield +b[:,[1,2,0]]
-		yield +b[:,[2,0,1]]
-		yield -b[:,[0,2,1]]
-		yield -b[:,[2,1,0]]
-		yield -b[:,[1,0,2]]
+		yield +b[...,[0,1,2]]
+		yield +b[...,[1,2,0]]
+		yield +b[...,[2,0,1]]
+		yield -b[...,[0,2,1]]
+		yield -b[...,[2,1,0]]
+		yield -b[...,[1,0,2]]
 
 def hash_(a):
-	return a[:,0] * 1000000_000000 + a[:,1] * 1000000 + a[:,2]
+	return a[...,0] * 1000000_000000 + a[...,1] * 1000000 + a[...,2]
 
 def align(b, a):
 	sb = hash_(b)
 	for a in orient(a):
-		for ra in a:
-			for rb in b:
-				sa = hash_(a+rb-ra)
-				if len(np.intersect1d(sa, sb, assume_unique=True)) >= 12:
+		sa = hash_(a)
+		for (ra, sra) in zip(a, sa):
+			for (rb, srb) in zip(b, sb):
+				if len(np.intersect1d(sa+srb-sra, sb, assume_unique=True)) >= 12:
 					return a+rb-ra, rb-ra
 
 inp2 = list(inp)
