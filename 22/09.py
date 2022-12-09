@@ -1,9 +1,16 @@
-from numpy import sign
 inp = open("09.in").read().splitlines()
 x = [0]*10
 y = [0]*10
 seen1 = {(0, 0)}
 seen2 = {(0, 0)}
+
+d = [
+	[-1, 0, 0, 0,-1],
+	[-1,-1, 0,+1,+1],
+	[-1,-1, 0,+1,+1],
+	[-1,-1, 0,+1,+1],
+	[-1, 0, 0, 0,+1],
+]
 
 for l in inp:
 	for _ in range(int(l[2:])):
@@ -16,16 +23,8 @@ for l in inp:
 		for i in range(1, 10):
 			dx = x[i]-x[i-1]
 			dy = y[i]-y[i-1]
-
-			if abs(dx) == 2 and abs(dy) != 2:
-				x[i] = x[i-1]+sign(dx)
-				y[i] = y[i-1]
-			elif abs(dy) == 2 and abs(dx) != 2:
-				y[i] = y[i-1]+sign(dy)
-				x[i] = x[i-1]
-			else:
-				x[i] = x[i-1]+sign(dx)
-				y[i] = y[i-1]+sign(dy)
+			x[i] = x[i-1] + d[dy+2][dx+2]
+			x[i] = y[i-1] + d[dx+2][dy+2]
 
 		seen1.add((x[1], y[1]))
 		seen2.add((x[9], y[9]))
