@@ -19,7 +19,7 @@ def sand(g, y0, x0):
 	while True:
 		found = False
 		y, x = y0, x0
-		while 0 <= x < h.shape[1]:
+		while True:
 			w = np.where(h[y:, x])[0]
 			if not len(w): break
 			if w[0] == 0: break
