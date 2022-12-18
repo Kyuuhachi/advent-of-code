@@ -1,5 +1,5 @@
 import numpy as np
-x = np.zeros((24,24,24), dtype=bool)
+x = np.zeros((23,23,23), dtype=bool)
 for l in open("18.in"):
 	a, b, c = map(int, l.strip().split(","))
 	x[a+1,b+1,c+1] = True
@@ -11,9 +11,9 @@ for a in 0,1,2:
 print(n)
 
 y = np.zeros_like(x)
-y[[0,-1],:,:] = True
-y[:,[0,-1],:] = True
-y[:,:,[0,-1]] = True
+y[0,:,:] = True
+y[:,0,:] = True
+y[:,:,0] = True
 assert not np.any(x&y)
 while True:
 	p = y.sum()
