@@ -20,38 +20,45 @@ bliz = np.pad(bliz, ((0,0),(1,1),(1,1)), "constant", constant_values=True)
 bliz[:,0,1] = False
 bliz[:,-1,-2] = False
 
-d = np.zeros(bliz.shape, dtype="u2")
-d[bliz] = -1
+d = np.zeros((3, *bliz.shape), dtype="u2")
+d[:, bliz] = -1
 
-d[0,0,1] = 1
-q = [(0,0,1)]
-for t, y, x in q:
+d[0, 0,0,1] = 1
+q = [(0, 0,0,1)]
+for k,t,y,x in q:
 	T = (t + 1) % len(bliz)
-	if not d[T,y,x]:
-		d[T,y,x] = d[t,y,x]+1
-		q.append((T,y,x))
 	if y == 0:
-		if not d[T,y+1,x]:
-			d[T,y+1,x] = d[t,y,x]+1
-			q.append((T,y+1,x))
+		if k == 1:
+			d[2,t,y,x] = d[1,t,y,x]
+			k = 2
+		if not d[k,T,y+1,x]:
+			d[k,T,y+1,x] = d[k,t,y,x]+1
+			q.append((k,T,y+1,x))
 	elif y == bliz.shape[-2]-1:
-		if not d[T,y-1,x]:
-			d[T,y-1,x] = d[t,y,x]+1
-			q.append((T,y-1,x))
+		if k == 0:
+			d[1,t,y,x] = d[0,t,y,x]
+			k = 1
+		if not d[k,T,y-1,x]:
+			d[k,T,y-1,x] = d[k,t,y,x]+1
+			q.append((k,T,y-1,x))
 	else:
-		if not d[T,y-1,x]:
-			d[T,y-1,x] = d[t,y,x]+1
-			q.append((T,y-1,x))
-		if not d[T,y,x-1]:
-			d[T,y,x-1] = d[t,y,x]+1
-			q.append((T,y,x-1))
-		if not d[T,y+1,x]:
-			d[T,y+1,x] = d[t,y,x]+1
-			q.append((T,y+1,x))
-		if not d[T,y,x+1]:
-			d[T,y,x+1] = d[t,y,x]+1
-			q.append((T,y,x+1))
+		if not d[k,T,y-1,x]:
+			d[k,T,y-1,x] = d[k,t,y,x]+1
+			q.append((k,T,y-1,x))
+		if not d[k,T,y,x-1]:
+			d[k,T,y,x-1] = d[k,t,y,x]+1
+			q.append((k,T,y,x-1))
+		if not d[k,T,y+1,x]:
+			d[k,T,y+1,x] = d[k,t,y,x]+1
+			q.append((k,T,y+1,x))
+		if not d[k,T,y,x+1]:
+			d[k,T,y,x+1] = d[k,t,y,x]+1
+			q.append((k,T,y,x+1))
+	if not d[k,T,y,x]:
+		d[k,T,y,x] = d[k,t,y,x]+1
+		q.append((k,T,y,x))
 
-print(len(q), len(set(q)))
-e = d[:,-1,-2]
+e = d[0,:,-1,-2]
+print((e-1).min())
+e = d[2,:,-1,-2]
 print((e-1).min())
