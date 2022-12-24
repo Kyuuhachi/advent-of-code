@@ -1,6 +1,5 @@
 import dataclasses as dc
 import re
-from collections import defaultdict
 from math import prod
 rx = re.compile(r"Blueprint (\d+): Each ore robot costs (\d+) ore\. Each clay robot costs (\d+) ore\. Each obsidian robot costs (\d+) ore and (\d+) clay\. Each geode robot costs (\d+) ore and (\d+) obsidian\.")
 
@@ -18,8 +17,8 @@ bp = []
 for line in open("19.in"):
 	bp.append(Bp(*map(int, rx.fullmatch(line.strip()).groups())))
 
-def run(bp: Bp, mt: int):
-	q = [(mt,(1,0,0,0),(0,0,0,0))]
+def run(bp: Bp, t: int):
+	q = [(t,(1,0,0,0),(0,0,0,0))]
 	mx = 0
 	tested, pruned = 0, 0
 	while q:
