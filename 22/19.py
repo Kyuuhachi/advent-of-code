@@ -28,28 +28,6 @@ def run(bp: Bp, t: int):
 			continue
 		tested += 1
 		mx = max(mx, d+D*t)
-		if A < 4:
-			dt = 1+max([
-				0,
-				-(-(bp.ore_ore-a)//A),
-			])
-			if dt <= t:
-				q.append((t-dt, (A+1,B,C,D), (a+A*dt-bp.ore_ore, b+B*dt, c+C*dt, d+D*dt)))
-		if A:
-			dt = 1+max([
-				0,
-				-(-(bp.clay_ore-a)//A),
-			])
-			if dt <= t:
-				q.append((t-dt, (A,B+1,C,D), (a+A*dt-bp.clay_ore, b+B*dt, c+C*dt, d+D*dt)))
-		if A and B:
-			dt = 1+max([
-				0,
-				-(-(bp.obs_ore-a)//A),
-				-(-(bp.obs_clay-b)//B),
-			])
-			if dt <= t:
-				q.append((t-dt, (A,B,C+1,D), (a+A*dt-bp.obs_ore, b+B*dt-bp.obs_clay, c+C*dt, d+D*dt)))
 		if A and C:
 			dt = 1+max([
 				0,
@@ -58,6 +36,28 @@ def run(bp: Bp, t: int):
 			])
 			if dt <= t:
 				q.append((t-dt, (A,B,C,D+1), (a+A*dt-bp.geo_ore, b+B*dt, c+C*dt-bp.geo_obs, d+D*dt)))
+		if A and B:
+			dt = 1+max([
+				0,
+				-(-(bp.obs_ore-a)//A),
+				-(-(bp.obs_clay-b)//B),
+			])
+			if dt <= t:
+				q.append((t-dt, (A,B,C+1,D), (a+A*dt-bp.obs_ore, b+B*dt-bp.obs_clay, c+C*dt, d+D*dt)))
+		if A:
+			dt = 1+max([
+				0,
+				-(-(bp.clay_ore-a)//A),
+			])
+			if dt <= t:
+				q.append((t-dt, (A,B+1,C,D), (a+A*dt-bp.clay_ore, b+B*dt, c+C*dt, d+D*dt)))
+		if A < 4:
+			dt = 1+max([
+				0,
+				-(-(bp.ore_ore-a)//A),
+			])
+			if dt <= t:
+				q.append((t-dt, (A+1,B,C,D), (a+A*dt-bp.ore_ore, b+B*dt, c+C*dt, d+D*dt)))
 	print(f"{bp.num} max={mx}, {tested=}, {pruned=}")
 	return mx
 
