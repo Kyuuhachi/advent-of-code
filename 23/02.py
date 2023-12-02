@@ -1,3 +1,5 @@
+import numpy as np
+
 input = []
 for (i, line) in enumerate(open("02.in"), 1):
 	assert line.startswith(f"Game {i}: ")
@@ -11,17 +13,7 @@ for (i, line) in enumerate(open("02.in"), 1):
 				case [blue, "blue"]: pass
 				case _: raise ValueError(count)
 		games.append((int(red), int(green), int(blue)))
-	input.append(games)
+	input.append(np.array(games))
 
-print(sum(
-	i
-	for i, games in enumerate(input, 1)
-	if all(r <= 12 and g <= 13 and b <= 14 for r, g, b in games)
-))
-print(sum(
-	(
-		max(r for r, _, _ in games)
-		* max(g for _, g, _ in games)
-		* max(b for _, _, b in games)
-	) for games in input
-))
+print(sum(i for i, games in enumerate(input, 1) if np.all(games <= [12, 13, 14])))
+print(sum(games.max(axis=0).prod() for games in input))
