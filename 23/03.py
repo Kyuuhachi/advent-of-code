@@ -15,21 +15,18 @@ for m in re.finditer(r"\d+", joined):
 		n += int(m.group())
 print(n)
 
-def get_number(pos) -> tuple[int, int]:
-	end = pos
-	while joined[pos-1] in "0123456789":
-		pos -= 1
-	while joined[end] in "0123456789":
-		end += 1
-	return (pos, int(joined[pos:end]))
+numbers = {}
+for m in re.finditer(r"\d+", joined):
+	for i in range(m.start(), m.end()):
+		numbers[i] = (m.start(), int(m.group()))
 
 n = 0
 for i, ch in enumerate(joined):
 	if ch != '*': continue
 	nearby = {
-		get_number(i + s)
+		numbers[i + s]
 		for s in [-stride-1, -stride, -stride+1, -1, 1, stride-1, stride, stride+1]
-		if joined[i+s] in "0123456789"
+		if i+s in numbers
 	}
 	if len(nearby) == 2:
 		[[_, a], [_, b]] = nearby
