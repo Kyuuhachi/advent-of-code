@@ -8,12 +8,12 @@ for inp in inp[1:]:
 	mapping = []
 	for line in inp[1:]:
 		[dst, src, count] = map(int, line.split())
-		mapping.append((src, count, dst))
-	mapping.sort(key=lambda a: a[0])
+		mapping.append((dst, src, count))
+	mapping.sort(key=lambda a: a[1])
 	
 	prev = 0
 	mapping2 = []
-	for (src, count, dst) in mapping:
+	for (dst, src, count) in mapping:
 		if prev < src:
 			mapping2.append((src, 0))
 		mapping2.append((src+count, dst-src))
