@@ -1,0 +1,56 @@
+import math
+
+inp = open("05.in").read().strip().split("\n\n");
+goal = [int(a) for a in inp[0].removeprefix("seeds: ").split()]
+maps = []
+for inp in inp[1:]:
+	inp = inp.splitlines()
+	mapping = []
+	for line in inp[1:]:
+		[dst, src, count] = map(int, line.split())
+		mapping.append((src, count, dst))
+	mapping.sort(key=lambda a: a[0])
+	
+	prev = 0
+	mapping2 = []
+	for (src, count, dst) in mapping:
+		if prev < src:
+			mapping2.append((prev, src, 0))
+		mapping2.append((src, src+count, dst-src))
+		prev = src + count
+	mapping2.append((prev, math.inf, 0))
+	maps.append(mapping2)
+
+s = goal
+for v in maps:
+	s = [next(
+		s + off
+		for start, end, off in v
+		if start <= s < end
+	) for s in s]
+print(min(s))
+
+s = sorted((a, a+b) for a, b in zip(goal[0::2], goal[1::2]))
+for v in maps:
+	s.append((math.inf, math.inf))
+	s.reverse()
+
+	last = 0
+	out = []
+	for start, end, off in v:
+		while s[-1][1] < start:
+			s.pop()
+		if end <= s[-1][0]:
+			continue
+		while True:
+			mn = max(start, s[-1][0])
+			mx = min(end, s[-1][1])
+			if mn < mx:
+				out.append((mn+off, mx+off))
+			if s[-1][1] < end:
+				s.pop()
+			else:
+				break
+	out.sort()
+	s = out
+print(min(s)[0])
