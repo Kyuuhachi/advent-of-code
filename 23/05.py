@@ -5,11 +5,10 @@ goal = [int(a) for a in inp[0].removeprefix("seeds: ").split()]
 maps = []
 for inp in inp[1:]:
 	inp = inp.splitlines()
-	mapping = []
-	for line in inp[1:]:
-		[dst, src, count] = map(int, line.split())
-		mapping.append((dst, src, count))
-	mapping.sort(key=lambda a: a[1])
+	mapping = sorted(
+		[tuple(map(int, line.split())) for line in inp[1:]],
+		key=lambda a: a[1],
+	)
 	
 	prev = 0
 	mapping2 = []
