@@ -15,18 +15,18 @@ for inp in inp[1:]:
 	mapping2 = []
 	for (src, count, dst) in mapping:
 		if prev < src:
-			mapping2.append((prev, src, 0))
-		mapping2.append((src, src+count, dst-src))
+			mapping2.append((src, 0))
+		mapping2.append((src+count, dst-src))
 		prev = src + count
-	mapping2.append((prev, math.inf, 0))
+	mapping2.append((math.inf, 0))
 	maps.append(mapping2)
 
 s = goal
 for v in maps:
 	s = [next(
 		s + off
-		for start, end, off in v
-		if start <= s < end
+		for end, off in v
+		if s < end
 	) for s in s]
 print(min(s))
 
@@ -35,15 +35,15 @@ for v in maps:
 	s.append((math.inf, math.inf))
 	s.reverse()
 
-	last = 0
+	prev = 0
 	out = []
-	for start, end, off in v:
-		while s[-1][1] < start:
+	for end, off in v:
+		while s[-1][1] < prev:
 			s.pop()
 		if end <= s[-1][0]:
 			continue
 		while True:
-			mn = max(start, s[-1][0])
+			mn = max(prev, s[-1][0])
 			mx = min(end, s[-1][1])
 			if mn < mx:
 				out.append((mn+off, mx+off))
@@ -51,6 +51,7 @@ for v in maps:
 				s.pop()
 			else:
 				break
+		prev = end
 	out.sort()
 	s = out
 print(min(s)[0])
