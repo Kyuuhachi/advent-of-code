@@ -8,11 +8,11 @@ def score(cardvalue, hands):
 	def score(cards):
 		return (
 			sorted(hands(cards).values(), reverse=True),
-			[-cardvalue.find(v) for v in cards],
+			[cardvalue.find(v) for v in cards],
 		)
 	return sum((i+1)*b for i, (_, b) in enumerate(sorted(input, key=lambda a: score(a[0]))))
 
-print(score("AKQJT98765432", Counter))
+print(score("23456789TJQKA", Counter))
 
 def JokerCounter(cards):
 	count = Counter(cards)
@@ -21,4 +21,4 @@ def JokerCounter(cards):
 		[(best, _), *_] = count.most_common()
 		count[best] += jokers
 	return count
-print(score("AKQT98765432J", JokerCounter))
+print(score("J23456789TQKA", JokerCounter))
