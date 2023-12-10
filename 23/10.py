@@ -20,18 +20,4 @@ while True:
 	n += 1
 print((n+1)//2)
 
-g = np.zeros((vis.shape[0] * 2+1, vis.shape[1] * 2+1), dtype=bool)
-g[1::2,1::2] = vis
-g[::2,1::2] = v
-g[1::2,::2] = h
-
-q = [(0, 0)]
-for y, x in q:
-	if g[y, x]: continue
-	g[y, x] = True
-	q.append((y-1,x))
-	q.append((y+1,x))
-	q.append((y,x-1))
-	q.append((y,x+1))
-
-print((~g[1::2,1::2]).sum())
+print(((v[:-1] & vis).cumsum(axis=1) & ~vis).sum())
