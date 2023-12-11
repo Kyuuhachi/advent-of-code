@@ -9,5 +9,5 @@ h = np.sum(input == '#', axis=0)
 z = np.cumsum(h) * np.roll(np.cumsum(h[::-1])[::-1], -1)
 z[-1] = 0
 
-print((w + w*(v==0) + z + z*(h==0)).sum())
-print((w + w*(v==0)*999999 + z + z*(h==0)*999999).sum())
+g = np.array([[1, 1], [2, 1000000]])
+print(w @ g[(v == 0)+0] + z @ g[(h == 0)+0])
