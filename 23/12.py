@@ -6,17 +6,18 @@ for i in open("12.in"):
 def count(a: str, b: list[int]):
 	import functools
 	@functools.lru_cache(None)
-	def rec(ai: int, bi: int):
-		if ai >= len(a): return bi == len(b)
-		if bi == len(b): return '#' not in a[ai:]
+	def rec(i: int, j: int):
+		if i >= len(a): return j == len(b)
+		if j == len(b): return '#' not in a[i:]
 		n = 0
-		if a[ai] in "#?":
-			w = ai+b[bi]
-			if '.' not in a[ai:w]:
-				if len(a) >= w and not a[w:].startswith('#'):
-					n += rec(w+1, bi+1)
-		if a[ai] in ".?":
-			n += rec(ai+1, bi)
+		if a[i] != '.':
+			k = i+b[j]
+			if len(a) >= k \
+					and '.' not in a[i:k] \
+					and not a[k:].startswith('#'):
+				n += rec(k+1, j+1)
+		if a[i] != '#':
+			n += rec(i+1, j)
 		return n
 	return rec(0, 0)
 
