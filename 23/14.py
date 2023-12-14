@@ -6,7 +6,7 @@ input = np.pad(input, 1, constant_values='#')
 def tilt(o, w):
 	while True:
 		k = o & np.roll(~o & ~w, 1, axis=0)
-		if not k.sum(): break
+		if not k.any(): break
 		o = o & ~k | np.roll(k, -1, axis=0)
 	return o
 
