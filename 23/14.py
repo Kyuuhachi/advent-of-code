@@ -3,7 +3,6 @@ import numpy as np
 input = np.array([list(i) for i in open("14.in").read().splitlines()])
 input = np.pad(input, 1, constant_values='#')
 
-w = input == '#'
 def tilt(o, w):
 	while True:
 		k = o & np.roll(~o & ~w, 1, axis=0)
