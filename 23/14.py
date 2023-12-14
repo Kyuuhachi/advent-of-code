@@ -6,12 +6,9 @@ input = np.pad(input, 1, constant_values='#')
 w = input == '#'
 def tilt(o, w):
 	while True:
-		a = o
-		b = np.roll(~o & ~w, 1, axis=0)
-		k = a & b
+		k = o & np.roll(~o & ~w, 1, axis=0)
 		if not k.sum(): break
-		o[k] = False
-		o[np.roll(k, -1, axis=0)] = True
+		o = o & ~k | np.roll(k, -1, axis=0)
 	return o
 
 def score(grid):
