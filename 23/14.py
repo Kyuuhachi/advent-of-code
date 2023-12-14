@@ -19,18 +19,18 @@ def score(grid):
 
 print(score(tilt(input == 'O', input == '#')))
 
-g = input == 'O'
+o = input == 'O'
 w = input == '#'
 h = {}
 for i in range(1,1000000):
 	for j in range(4):
-		g = tilt(g, w)
-		g = np.rot90(g, -1)
+		o = tilt(o, w)
+		o = np.rot90(o, -1)
 		w = np.rot90(w, -1)
-	bits = np.packbits(g).tobytes()
+	bits = np.packbits(o).tobytes()
 	if bits in h:
 		period = i - h[bits]
 		if i % period == 1000000000 % period:
-			print(score(g), period, i)
+			print(score(o), period, i)
 			break
 	h[bits] = i
