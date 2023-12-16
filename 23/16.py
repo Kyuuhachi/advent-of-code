@@ -1,7 +1,6 @@
 import numpy as np
 
 input = np.array([list(i) for i in open("16.in").read().splitlines()])
-print(input)
 
 def run(y, x, rot):
 	p = [(y, x, rot)]
