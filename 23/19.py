@@ -11,18 +11,14 @@ for line in a.splitlines():
 		then.append((p[0], p[1], int(p[2:]), q))
 	scheme[name] = (then, end)
 
-def cond(r, o, n):
-	if o == "<": return r < n
-	if o == ">": return r > n
-	raise
-
 def test(what, **vars):
 	if what == "A": return True
 	if what == "R": return False
 
 	p, end = scheme[what]
 	for var, op, n, then in p:
-		if cond(vars[var], op, n): return test(then, **vars)
+		if op == "<" and vars[var] < n: return test(then, **vars)
+		if op == ">" and vars[var] > n: return test(then, **vars)
 	return test(end, **vars)
 
 n = 0
@@ -33,11 +29,6 @@ for line in b.splitlines():
 		n += sum(vars.values())
 print(n)
 
-def split(r, o, n):
-	if o == "<": return (r[0], n-1), (n, r[1])
-	if o == ">": return (n+1, r[1]), (r[0], n)
-	raise
-
 def parse(what, **vars):
 	from math import prod
 	if what == "A": return prod(a[1]-a[0]+1 for a in vars.values())
@@ -46,7 +37,9 @@ def parse(what, **vars):
 	k = 0
 	p, end = scheme[what]
 	for var, op, n, then in p:
-		v1, v2 = split(vars[var], op, n)
+		mn, mx = vars[var]
+		if op == "<": v1, v2 = (mn, n-1), (n, mx)
+		if op == ">": v1, v2 = (n+1, mx), (mn, n)
 		vars[var] = v1
 		k += parse(then, **vars)
 		vars[var] = v2
