@@ -1,5 +1,5 @@
 import numpy as np
-from numpy import ma
+
 bricks = []
 for line in open("22.in").read().splitlines():
 	p1,p2 = line.split("~")
