@@ -10,19 +10,20 @@ bricks.sort(key=lambda a: a[2])
 
 height = np.zeros((10, 10), dtype="u4")
 top = np.full((10, 10), -1, dtype="i4")
-can = np.ones(len(bricks), dtype=bool)
 supported_by = {}
 for i,(x,z,y) in enumerate(bricks):
 	s = np.s_[x[0]:x[1]+1,z[0]:z[1]+1]
 	h = height[s].max()
-	sup = np.unique(top[s][(height[s] == h)])
-	supported_by[i] = set(sup)
-	if len(sup) == 1 and sup[0] != -1:
-		can[sup] = False
+	supported_by[i] = set(np.unique(top[s][(height[s] == h)]))
 	assert h <= y[0], (h, (x,z,y,i))
 	height[s] = h + y[1] + 1 - y[0]
 	top[s] = i
-print(can.sum())
+
+can = set(range(len(bricks)))
+for sup in supported_by.values():
+	if len(sup) == 1:
+		can -= sup
+print(len(can))
 
 n = 0
 for i in range(len(bricks)):
