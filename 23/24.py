@@ -1,5 +1,4 @@
 import numpy as np
-import sympy as sp
 hail = []
 for line in open("24.in").read().splitlines():
 	pos, vel = line.split(" @ ")
@@ -9,26 +8,22 @@ for line in open("24.in").read().splitlines():
 	))
 hail = np.array(hail)
 
-n = 0
-for i, l1 in enumerate(hail):
-	for j, l2 in enumerate(hail[i+1:], i+1):
-		nant = lambda a, b: a[1]*b[0] - a[0]*b[1]
-		d = l2[0] - l1[0]
-		det = nant(l1[1], l2[1])
-		if det == 0:
-			continue
-		u = nant(d, l2[1]) / det
-		v = nant(d, l1[1]) / det
-		if u > 0 and v > 0:
-			p = l1[0] + l1[1] * u
-			if all(200000000000000 <= p <= 400000000000000 for p in p[:2]):
-				n += 1
-print(n)
+p = hail[:,0,:2]
+v = hail[:,1,:2]
 
+d = p[:,None] - p[None,:]
+det = np.cross(v[None,:], v[:,None], axis=-1)
+a = np.cross(d, v[None,:], axis=-1) / det
+b = np.cross(d, v[:,None], axis=-1) / det
+q = p[:,None] + v[:,None] * a[:,:,None]
+q = np.all((2e14 <= q) & (q <= 4e14), axis=-1)
+print(np.tril(q & (a > 0) & (b > 0)).sum())
+
+import sympy as sp
 pos = np.array(sp.symbols("px py pz"))
 vel = np.array(sp.symbols("dx dy dz"))
 h = hail[:3]
-eq = np.cross(h[:,0] - [pos], h[:,1] - [vel], axis=1).flatten()
+eq = np.cross(h[:,0] - [pos], h[:,1] - [vel], axis=-1).flatten()
 sol, = sp.solve(eq, [*vel, *pos])
 for q in eq: print(q)
 print(sol)
