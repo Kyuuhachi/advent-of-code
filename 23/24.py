@@ -27,11 +27,8 @@ print(n)
 
 pos = np.array(sp.symbols("px py pz"))
 vel = np.array(sp.symbols("dx dy dz"))
-eq = [
-	np.cross(h[0] - pos, h[1] - vel)
-	for h in hail[:3]
-]
-eq = [eq for eq in eq for eq in eq]
+h = hail[:3]
+eq = np.cross(h[:,0] - [pos], h[:,1] - [vel], axis=1).flatten()
 sol, = sp.solve(eq, [*vel, *pos])
 for q in eq: print(q)
 print(sol)
