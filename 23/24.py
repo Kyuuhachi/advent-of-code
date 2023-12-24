@@ -1,15 +1,13 @@
 import numpy as np
-hail = []
+POS, VEL = [], []
 for line in open("24.in").read().splitlines():
 	pos, vel = line.split(" @ ")
-	hail.append((
-		np.fromiter((int(p) for p in pos.split(", ")), "i8"),
-		np.fromiter((int(v) for v in vel.split(", ")), "i8"),
-	))
-hail = np.array(hail)
+	POS.append(np.fromiter((int(p) for p in pos.split(", ")), "i8"))
+	VEL.append(np.fromiter((int(v) for v in vel.split(", ")), "i8"))
+POS, VEL = np.array(POS), np.array(VEL)
 
-p = hail[:,0,:2]
-v = hail[:,1,:2]
+p = POS[:,:2]
+v = VEL[:,:2]
 
 d = p[:,None] - p[None,:]
 det = np.cross(v[None,:], v[:,None], axis=-1)
@@ -22,8 +20,7 @@ print(np.tril(q & (a > 0) & (b > 0)).sum())
 import sympy as sp
 pos = np.array(sp.symbols("px py pz"))
 vel = np.array(sp.symbols("dx dy dz"))
-h = hail[:3]
-eq = np.cross(h[:,0] - [pos], h[:,1] - [vel], axis=-1).flatten()
+eq = np.cross(POS[:3] - [pos], VEL[:3] - [vel], axis=-1).flatten()
 sol, = sp.solve(eq, [*vel, *pos])
 for q in eq: print(q)
 print(sol)
