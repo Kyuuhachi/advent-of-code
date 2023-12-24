@@ -29,7 +29,7 @@ time = sp.symbols("a b c")
 pos = sp.symbols("px py pz")
 vel = sp.symbols("dx dy dz")
 eq = [
-	sp.Eq(h[0][i] + h[1][i] * w, pos[i]+vel[i]*w)
+	(h[0][i] + h[1][i] * w) - (pos[i]+vel[i]*w)
 	for h, w in zip(hail, time)
 	for i in range(3)
 ]
