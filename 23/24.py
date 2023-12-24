@@ -29,7 +29,7 @@ time = np.array(sp.symbols("a b c"))
 pos = np.array(sp.symbols("px py pz"))
 vel = np.array(sp.symbols("dx dy dz"))
 eq = [
-	(h[0] + h[1] * w) - (pos+vel*w)
+	(h[0] - pos) - (h[1] - vel)*-w
 	for h, w in zip(hail, time)
 ]
 eq = [eq for eq in eq for eq in eq]
