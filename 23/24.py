@@ -25,15 +25,14 @@ for i, l1 in enumerate(hail):
 				n += 1
 print(n)
 
-time = np.array(sp.symbols("a b c"))
 pos = np.array(sp.symbols("px py pz"))
 vel = np.array(sp.symbols("dx dy dz"))
 eq = [
-	(h[0] - pos) - (h[1] - vel)*-w
-	for h, w in zip(hail, time)
+	np.cross(h[0] - pos, h[1] - vel)
+	for h in hail[:3]
 ]
 eq = [eq for eq in eq for eq in eq]
-sol, = sp.solve(eq, [*time, *vel, *pos])
+sol, = sp.solve(eq, [*vel, *pos])
 for q in eq: print(q)
 print(sol)
 print(sum(sol[-3:]))
