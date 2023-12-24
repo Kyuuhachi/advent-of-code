@@ -20,8 +20,13 @@ print(np.tril(q & (a > 0) & (b > 0)).sum())
 import sympy as sp
 pos = np.array(sp.symbols("px py pz"))
 vel = np.array(sp.symbols("dx dy dz"))
-eq = np.cross(POS[:3] - [pos], VEL[:3] - [vel], axis=-1).flatten()
-sol, = sp.solve(eq, [*vel, *pos])
-for q in eq: print(q)
+sol, = sp.solve(
+	np.cross(
+		POS[:3] - [pos],
+		VEL[:3] - [vel],
+		axis=-1,
+	).flatten(),
+	[*vel, *pos]
+)
 print(sol)
 print(sum(sol[-3:]))
