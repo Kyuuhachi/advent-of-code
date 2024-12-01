@@ -26,7 +26,23 @@ sol, = sp.solve(
 		VEL[:3] - [vel],
 		axis=-1,
 	).flatten(),
-	[*vel, *pos]
+	[*vel, *pos],
+	dict=True
 )
 print(sol)
-print(sum(sol[-3:]))
+
+import sympy as sp
+pos = np.array(sp.symbols("px py pz"))
+vel = np.array(sp.symbols("dx dy dz"))
+POS = np.array(sp.symbols("Dx1 Dy1 Dz1 Dx2 Dy2 Dz2 Dx3 Dy3 Dz3")).reshape(3,3)
+VEL = np.array(sp.symbols("Px1 Py1 Pz1 Px2 Py2 Pz2 Px3 Py3 Pz3")).reshape(3,3)
+sol = sp.solve(
+	np.cross(
+		POS[:3] - [pos],
+		VEL[:3] - [vel],
+		axis=-1,
+	).flatten(),
+	*vel, *pos,
+	dict=True,
+)
+print(*sol, sep="\n")
