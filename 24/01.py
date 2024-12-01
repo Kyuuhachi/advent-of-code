@@ -1,6 +1,6 @@
 from collections import Counter
 a, b = [], []
-for line in open("01.txt").read().splitlines():
+for line in open("01.in").read().splitlines():
 	v1, v2 = line.split()
 	a.append(int(v1))
 	b.append(int(v2))
