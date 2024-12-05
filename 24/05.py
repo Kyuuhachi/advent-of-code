@@ -8,10 +8,10 @@ for b in S(b):
  c=1;d=0
  while c:
   c=0
-  for a in range(len(x)):
-   for b in range(a+1, len(x)):
+  for a in range(l:=len(x)):
+   for b in range(a+1, l):
     if (x[a+1], x[a]) in pairs:
      x[a], x[a+1] = x[a+1], x[a]
      c=d=1
- A[d] += int(x[len(x)//2])
+ A[d] += int(x[l//2])
 print(*A)
