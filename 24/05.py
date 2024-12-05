@@ -1,8 +1,7 @@
 a,b = open("05.in").read().split("\n\n")
 pairs = set()
 for a in a.split():
- a1, a2 = a.split("|")
- pairs.add((a1, a2))
+ pairs.add((*a.split("|"),))
 
 A=[0,0]
 for b in b.split():
