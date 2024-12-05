@@ -1,11 +1,12 @@
-a,b = open("05.in").read().split("\n\n")
+S=str.split
+a,b = S(open("05.in").read(),"\n\n")
 pairs = set()
-for a in a.split():
- pairs.add((*a.split("|"),))
+for a in S(a):
+ pairs.add((*S(a,"|"),))
 
 A=[0,0]
-for b in b.split():
- x = b.split(",")
+for b in S(b):
+ x = S(b,",")
  c=1;d=0
  while c:
   c=0
