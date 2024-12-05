@@ -4,7 +4,7 @@ p={(*S(a,"|"),)for a in S(a)}
 
 A=[0,0]
 for b in S(b):
- x=S(b,",");c=1;d=0
+ c=x,d=S(b,","),0
  while c:
   for a in range(c:=0,l:=len(x)-1):
    if(x[a+1],x[a])in p:
