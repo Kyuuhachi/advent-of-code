@@ -5,7 +5,7 @@ A=[0,0]
 for b in S(b):
  c=x,d=S(b,","),0
  while c:
-  for a in range(c:=0,l:=len(x)-1):
-   if(x[a+1],x[a])in p:x[a:a+2]=x[a+1],x[a];c=d=1
+  for i in range(c:=0,l:=len(x)-1):
+   if(x[i+1],x[i])in p:x[i:i+2]=x[i+1],x[i];c=d=1
  A[d]+=int(x[l//2])
 print(*A)
