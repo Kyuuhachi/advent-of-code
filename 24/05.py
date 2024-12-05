@@ -6,8 +6,7 @@ A=[0,0]
 for b in S(b):
  x=S(b,",");c=1;d=0
  while c:
-  c=0
-  for a in range(l:=len(x)-1):
+  for a in range(c:=0,l:=len(x)-1):
    if(x[a+1],x[a])in p:
     x[a:a+2]=x[a+1],x[a]
     c=d=1
