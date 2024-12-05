@@ -9,7 +9,7 @@ for b in S(b):
   c=0
   for a in range(l:=len(x)-1):
    if(x[a+1],x[a])in p:
-    x[a],x[a+1]=x[a+1],x[a]
+    x[a:a+2]=x[a+1],x[a]
     c=d=1
  A[d]+=int(x[l//2])
 print(*A)
