@@ -1,8 +1,6 @@
 S=str.split
 a,b = S(open("05.in").read(),"\n\n")
-pairs = set()
-for a in S(a):
- pairs.add((*S(a,"|"),))
+pairs={(*S(a,"|"),)for a in S(a)}
 
 A=[0,0]
 for b in S(b):
