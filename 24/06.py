@@ -13,8 +13,9 @@ def run(pos,d,v,P):
   np=pos+stride[d%4]
   n=s[np:][:1]
   if P==s:run(pos,d,{*v},np)
-  if{(pos,d%4)}<v:m.add(P);break
-  v.add((pos,d%4))
+  k=(pos,d%4)
+  if{k}<v:m.add(P);break
+  v.add(k)
   if'#'>n or np<0:break
   if'#'==n or np==P:d+=1
   else:pos=np
