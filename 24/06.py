@@ -4,9 +4,7 @@ D=-w,1,w,-1
 m=set()
 K=set()
 def run(p,d,v,P):
- if{P}<K:return
- K.add(P)
- while 1:
+ while not P in K:
   N=p+D[d%4]
   n=s[N:][:1]
   if P==s:run(p,d,{*v},N)
@@ -14,6 +12,7 @@ def run(p,d,v,P):
   v.add(k)
   if'#'>n or N<0:break
   p=[N,p][q:='#'==n or N==P];d+=q
+ K.add(P)
 
 run(s.find('^'),0,v:=set(),s)
 print(len({a for a,_ in v}),len(m))
