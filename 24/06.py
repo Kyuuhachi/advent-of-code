@@ -9,7 +9,6 @@ K=set()
 def run(pos,d,v,P):
  if P in K:return
  K.add(P)
- print(len(m))
  while 1:
   np=pos+stride[d%4]
   n=s[np:][:1]
