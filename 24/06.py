@@ -12,7 +12,24 @@ while 1:
  if'#'==n:d+=1
  else:pos=np
  v.add(pos)
- if len(v)%100==0:print(''.join('o' if p in v else s[p] for p in range(len(s))))
 print(len(v))
 
+S=s
+x=0
+for P in range(len(s)):
+ if'.'!=s[P]:continue
+ pos=s.find('^')
+ d=0
+ v={(pos,d%4)}
+ # s=S[:P]+'#'+s[P+1:]
+ print(P,x)
 
+ while 1:
+  np=pos+stride[d%4]
+  n=s[np:][:1]
+  if'#'>n or np<0:break
+  if'#'==n or np==P:d+=1
+  else:pos=np
+  if(pos,d%4)in v:x+=1;break
+  v.add((pos,d%4))
+print(x)
