@@ -10,8 +10,7 @@ def run(p,d,v,P):
   N=p+D[d%4]
   n=s[N:][:1]
   if P==s:run(p,d,{*v},N)
-  k=(p,d%4)
-  if{k}<v:m.add(P);break
+  if{k:=(p,d%4)}<v:m.add(P);break
   v.add(k)
   if'#'>n or N<0:break
   if'#'==n or N==P:d+=1
