@@ -1,9 +1,6 @@
 s=open("06.in").read()
-pos=s.find('^')
 w=s.find('\n')+1
 stride=-w,1,w,-1
-d=0
-
 m=set()
 K=set()
 def run(pos,d,v,P):
@@ -20,5 +17,5 @@ def run(pos,d,v,P):
   if'#'==n or np==P:d+=1
   else:pos=np
 
-run(pos,0,v:=set(),s)
+run(s.find('^'),0,v:=set(),s)
 print(len({a for a,_ in v}),len(m))
