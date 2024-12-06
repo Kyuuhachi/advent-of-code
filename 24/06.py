@@ -20,6 +20,5 @@ def run(pos,d,v,P):
   if'#'==n or np==P:d+=1
   else:pos=np
 
-v=set()
-run(pos,0,v,s)
+run(pos,0,v:=set(),s)
 print(len({a for a,_ in v}),len(m))
