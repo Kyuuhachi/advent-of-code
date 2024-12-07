@@ -1,5 +1,5 @@
 A = B = 0
-r=lambda a,c:(a==Q)*W if a%1 or not c else r(a-(b:=c[0]),c:=c[1:])|r(a/b,c)|O*r((a-b)/10**len(str(b)),c)
+r=lambda a,c:W*(a==Q)if a%1 or[]==c else r(a-(b:=c[0]),c:=c[1:])|r(a/b,c)|O*r((a-b)/10**len(str(b)),c)
 
 for line in open("07.in"):
  W,Q,*c,=map(int,line.replace(*': ').split())
