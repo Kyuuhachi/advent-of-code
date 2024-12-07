@@ -5,7 +5,7 @@ def r(a,*c):
  v=r(a-b,*c)
  if a%b==0:v|=r(a//b,*c)
  n=10**len(str(b))
- if O and a%n==b:v|=r(a//n,*c)
+ if O&(a%n==b):v|=r(a//n,*c)
  return v
 
 for line in open("07.in"):
