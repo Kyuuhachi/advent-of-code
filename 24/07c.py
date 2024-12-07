@@ -1,11 +1,10 @@
 A = B = 0
 def r(a,c):
- if[]==c:return(a==Q)*W
+ if a%1 or not c:return(a==Q)*W
  b,*c=c
  v=r(a-b,c)
- if a%b==0:v|=r(a//b,c)
- n=10**len(str(b))
- if O&(a%n==b):v|=r(a//n,c)
+ v|=r(a/b,c)
+ v|=O*r((a-b)/10**len(str(b)),c)
  return v
 
 for line in open("07.in"):
