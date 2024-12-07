@@ -3,7 +3,7 @@ w=s.find('\n')+1
 m=set()
 def r(p,d,v,P,K={()}):
  while not{P}<K:
-  N=p+[-w,1,w,-1][d];n=s[N:][:1]
+  N=p+[-w,1,w,-1][d];n=s[N:N+1]
   if P==s:r(p,d,{*v},N)
   if{k:=(p,d)}<v:m.add(P);n=''
   v|={k};p=[N,p][q:=n=='#'or N==P];d=d+q&3
