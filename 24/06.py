@@ -5,13 +5,13 @@ m=set()
 K=set()
 def run(p,d,v,P):
  while not P in K:
-  N=p+D[d%4]
+  N=p+D[d]
   n=s[N:][:1]
   if P==s:run(p,d,{*v},N)
-  if{k:=(p,d%4)}<v:m.add(P);n=''
+  if{k:=(p,d)}<v:m.add(P);n=''
   v.add(k)
   if'#'>n or N<0:break
-  p=[N,p][q:='#'==n or N==P];d+=q
+  p=[N,p][q:='#'==n or N==P];d=d+q&3
  K.add(P)
 
 run(s.find('^'),0,v:=set(),s)
