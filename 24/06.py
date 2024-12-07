@@ -9,6 +9,5 @@ def run(p,d,v,P):
   if{k:=(p,d)}<v:m.add(P);n=''
   v.add(k);p=[N,p][q:=n=='#'or N==P];d=d+q&3
   if'#'>n or N<0:K.add(P)
-
 run(s.find('^'),0,v:=set(),s)
 print(len({a for a,_ in v}),len(m))
