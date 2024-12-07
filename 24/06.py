@@ -7,7 +7,7 @@ def run(p,d,v,P):
   N=p+[-w,1,w,-1][d];n=s[N:][:1]
   if P==s:run(p,d,{*v},N)
   if{k:=(p,d)}<v:m.add(P);n=''
-  v.add(k);p=[N,p][q:='#'==n or N==P];d=d+q&3
+  v.add(k);p=[N,p][q:=n=='#'or N==P];d=d+q&3
   if'#'>n or N<0:K.add(P)
 
 run(s.find('^'),0,v:=set(),s)
