@@ -1,18 +1,17 @@
 A = B = 0
-def solve(partb, a, b, *c):
- l = [a]
- for item in c[::-1]:
-  m = []
-  for val in l:
-   if not val % item: m.append(val//item)
-   if val > item: m.append(val-item)
-   n = 10**len(str(item))
-   if partb and val % n == item: m.append(val//n)
-  l = m
- return(b in l)*a
+def solve(val, *c):
+ if not c: return(val == Q)*a
+ item,*c=c
+ v = 0
+ if not val % item: v |= solve(val//item, *c)
+ if val > item: v |= solve(val-item, *c)
+ n = 10**len(str(item))
+ if O and val % n == item: v |= solve(val//n, *c)
+ return v
 
 for line in open("07.in"):
- *v,=map(int,line.replace(*': ').split())
- A+=solve(False, *v)
- B+=solve(True, *v)
+ a,Q,*c,=map(int,line.replace(*': ').split())
+ c=c[::-1]
+ O=0;A+=solve(a,*c)
+ O=1;B+=solve(a,*c)
 print(A, B)
