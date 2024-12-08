@@ -1,5 +1,5 @@
 s=open("08.in",'rb').read()
-m=[set()for _ in range(256)]
+m=[set()for _ in s]
 w=s.find(10)+1
 i=0
 for c in s:m[c]|={i//w+i%w*1j};i+=1
