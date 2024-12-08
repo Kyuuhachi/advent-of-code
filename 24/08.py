@@ -9,7 +9,8 @@ A={
  for n in m
  for p,q in n
  for r,s in n
- if (x:=p+p-r,y:=q+q-s)not in n
+ for d in[1]
+ if (x:=p+(p-r)*d,y:=q+(q-s)*d) not in n
 }&a
 B={
  (x,y)
@@ -17,6 +18,6 @@ B={
  for p,q in n
  for r,s in n
  for d in range(w)
- if (x:=p+(r-p)*d,y:=q+(s-q)*d)
+ if (x:=p+(p-r)*d,y:=q+(q-s)*d)
 }&a
 print(len(A),len(B))
