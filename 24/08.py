@@ -6,19 +6,18 @@ m[10]=m[46]=[]
 R=range(w-1)
 a={(i,j)for i in R for j in R}
 A={
- (x,y)
+ P
  for n in m
  for p,q in n
  for r,s in n
  for d in[1]
- if{(x:=p+(p-r)*d,y:=q+(q-s)*d)}-n
+ if{P:=(p+(p-r)*d,q+(q-s)*d)}-n
 }&a
 B={
- (x,y)
+ (p+(p-r)*d,q+(q-s)*d)
  for n in m
  for p,q in n
  for r,s in n
  for d in R
- if (x:=p+(p-r)*d,y:=q+(q-s)*d)
 }&a
 print(len(A),len(B))
