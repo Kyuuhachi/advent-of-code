@@ -6,5 +6,5 @@ for c in s:
  if c-10:m[c]|={i};i+=1j;A|=m[c]
  else:i=i.real+1
 m[46]=[]
-f=lambda f,g:len({v for n in m for p in n for q in n for d in range(g)if f(v:=p+(p-q)*d,n)}&A)
-print(f(lambda v,n:{v}-n,2),f(map,99))
+f=lambda f,g:len({p+v for n in m for p in n for q in n for d in range(g)if(v:=(p-q)*d)or f}&A)
+print(f(0,2),f(1,99))
