@@ -7,4 +7,4 @@ for c in s:
  else:i=i.real+1
 m[46]=[]
 f=lambda*g:len({p+d*(p-q)for n in m for p in n for q in n for d in range(*g)if p-q}&A)
-print(f(1,2),f(0,99))
+print(f(1,2),f(99))
