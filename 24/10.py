@@ -3,7 +3,7 @@ w=s.find(10)+1
 def R(p,c):
  if 0<=p<len(s)and s[p]==c:
   if c==57:return{F(p)}
-  return R(p-1,c+1)|R(p+1,c+1)|R(p+w,c+1)|R(p-w,c+1)
+  return R(p-1,c:=c+1)|R(p+1,c)|R(p+w,c)|R(p-w,c)
  return set()
 A=B=i=0
 for c in s:
