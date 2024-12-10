@@ -17,6 +17,6 @@ for i,w in E(s):
 for r in R[::-1]:
  print(r)
  for h in H:
-  if h[1]>=r[1]:r[0]=h[0];h[0]+=r[1];h[1]-=r[1]
+  if h[1]>=r[1]:r[0]=h[0];h[0]+=r[1];h[1]-=r[1];h[1]or H.remove(h)
   if h[0]>=r[0]:break
 print(sum(i*k*a+i*k*(k-1)//2 for a,k,i in R))
