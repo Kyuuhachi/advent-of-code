@@ -4,6 +4,6 @@ for z in 0,1:
  for n,w,i in R[::-1]:
   for h in H:
    if h[0]>=n:break
-   if h[1]>=w:n=h[0];h[0]+=w;h[1]-=w;h[1]or H.remove(h)
+   if h[1]>=w:n,m=h;h[0]+=w;h[1]-=w;m-w or H.remove(h)
   S+=i*w*(2*n+w-1)//2
  print(S)
