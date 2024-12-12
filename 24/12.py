@@ -12,8 +12,8 @@ for a in range(w*w):
  b,c,d=a-1,a-w-1,a-w
  for()in[()]*4:
   c,b,a,d=b,a,d,c;A=R(g[a]);B=R(g[b]);S=s[a]
-  if S!=s[b]:A.b += ((S!=s[d])|(S==s[c]))+1j
-  elif A!=B:A.b += B.b;B.v = A
+  if S!=s[b]:A.b+=((S!=s[d])|(S==s[c]))+1j
+  elif A!=B:A.b+=B.b;B.v=A
 
 R(g[a]).b=0
 print(sum(R(a).b for a in g))
