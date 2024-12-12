@@ -11,9 +11,9 @@ g=[J()for _ in s]
 for a in range(w*w):
  b,c,d=a-1,a-w-1,a-w
  for()in[()]*4:
-  if s[a]!=s[b]:R(g[a]).b += ((s[a]!=s[d])|(s[a]==s[c]))+1j
-  elif R(g[a])!=R(g[b]):R(g[a]).b += R(g[b]).b;R(g[b]).v = g[a]
-  c,b,a,d=b,a,d,c
+  c,b,a,d=b,a,d,c;A=R(g[a]);B=R(g[b])
+  if s[a]!=s[b]:A.b += ((s[a]!=s[d])|(s[a]==s[c]))+1j
+  elif A!=B:A.b += B.b;B.v = A
 
 R(g[a]).b=0
 print(sum(R(a).b for a in g))
