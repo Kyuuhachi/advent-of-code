@@ -2,7 +2,7 @@ s=open("12.in","rb").read()
 w=s.find(10)+1
 s+=b'\n'*w
 
-class A:v=a=b=0
+class A:v=b=0
 def R(n):
  while type(n.v)==A:n,n.v=n.v,n.v.v
  return n
@@ -18,9 +18,8 @@ for a in range(w*w):
  c=a-w-1
  d=a-w
  for()in[()]*4:
-  if s[a]!=s[b]:R(g[a]).a+=1; R(g[a]).b += (s[a]!=s[d])|(s[a]==s[c])
+  if s[a]!=s[b]:R(g[a]).b += ((s[a]!=s[d])|(s[a]==s[c]))+1j
   c,b,a,d=b,a,d,c
 
 R(g[a]).v=A()
-print(sum(R(a).a for a in g))
 print(sum(R(a).b for a in g))
