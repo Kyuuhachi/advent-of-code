@@ -18,18 +18,7 @@ for i in range(w*w):
    R(g[j]).v = g[i]
 
 R(g[-1]).v=0
-x={}
-for i in range(w*w):
- if i%w==w-1:
-  print()
- else:
-  if s[i]==10:continue
-  n = x.setdefault(R(g[i]),len(x))
-  b,n=divmod(n,16)
-  # print(b,n)
-  print(f'\x1B\x5B38;5;{n}m{chr(s[i])}\x1B\x5B0m',end='')
 print(sum(R(a).v for a in g))
-print(len(x))
 
 for se in range(w*w):
  ne=se-1
@@ -40,15 +29,4 @@ for se in range(w*w):
   nw,ne,se,sw=ne,se,sw,nw
 
 R(g[-1]).b=0
-x={}
-for i in range(w*w):
- if i%w==w-1:
-  print()
- else:
-  if s[i]==10:continue
-  n = x.setdefault(R(g[i]),len(x))
-  b,n=divmod(n,16)
-  # print(b,n)
-  print(f'\x1B\x5B38;5;{n}m{chr(s[i])}\x1B\x5B0m',end='')
 print(sum(R(a).b for a in g))
-print(len(x))
