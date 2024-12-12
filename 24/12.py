@@ -3,9 +3,9 @@ w=s.find(10)+1
 s+=b'\n'*w
 
 class J:v=b=0
-def R(n):
- while n.v:n,n.v=n.v,n.v.v
- return n
+def R(v):
+ while v.v:v,v.v=v.v,v.v.v
+ return v
 
 g=[J()for _ in s]
 for a in range(w*w):
