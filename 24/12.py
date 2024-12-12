@@ -11,14 +11,14 @@ g=[A()for _ in s]
 for i in range(w*w):
  for j in i-1,i-w:
   if s[j]-s[i]:
-   R(g[j]).v += 1
-   R(g[i]).v += 1
+   R(g[j]).a += 1
+   R(g[i]).a += 1
   elif R(g[j]) != R(g[i]):
-   R(g[i]).v += R(g[j]).v
+   R(g[i]).a += R(g[j]).a
    R(g[j]).v = g[i]
 
-R(g[-1]).v=0
-print(sum(R(a).v for a in g))
+R(g[-1]).a=0
+print(sum(R(a).a for a in g))
 
 for se in range(w*w):
  ne=se-1
