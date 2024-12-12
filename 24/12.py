@@ -10,9 +10,7 @@ def R(n):
 g=[A()for _ in s]
 for i in range(w*w):
  for j in i-1,i-w:
-  if s[j]-s[i]:
-   0
-  elif R(g[j]) != R(g[i]):
+  if s[j]==s[i] and R(g[j]) != R(g[i]):
    R(g[j]).v = g[i]
 
 for a in range(w*w):
