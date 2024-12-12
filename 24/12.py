@@ -17,9 +17,6 @@ for i in range(w*w):
    R(g[i]).a += R(g[j]).a
    R(g[j]).v = g[i]
 
-R(g[-1]).a=0
-print(sum(R(a).a for a in g))
-
 for se in range(w*w):
  ne=se-1
  nw=se-w-1
@@ -28,5 +25,6 @@ for se in range(w*w):
   if s[nw]!=s[ne]: R(g[nw]).b += (s[nw]!=s[sw])|(s[nw]==s[se])
   nw,ne,se,sw=ne,se,sw,nw
 
-R(g[-1]).b=0
+R(g[-1]).v=A()
+print(sum(R(a).a for a in g))
 print(sum(R(a).b for a in g))
