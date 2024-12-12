@@ -11,10 +11,8 @@ g=[A()for _ in s]
 for i in range(w*w):
  for j in i-1,i-w:
   if s[j]-s[i]:
-   R(g[j]).a += 1
-   R(g[i]).a += 1
+   0
   elif R(g[j]) != R(g[i]):
-   R(g[i]).a += R(g[j]).a
    R(g[j]).v = g[i]
 
 for a in range(w*w):
@@ -22,7 +20,7 @@ for a in range(w*w):
  c=a-w-1
  d=a-w
  for()in[()]*4:
-  if s[c]!=s[b]: R(g[c]).b += (s[c]!=s[d])|(s[c]==s[a])
+  if s[c]!=s[b]:R(g[c]).a+=1; R(g[c]).b += (s[c]!=s[d])|(s[c]==s[a])
   c,b,a,d=b,a,d,c
 
 R(g[-1]).v=A()
