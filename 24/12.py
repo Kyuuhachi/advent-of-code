@@ -21,6 +21,6 @@ for a in range(w*w):
   if s[a]!=s[b]:R(g[a]).a+=1; R(g[a]).b += (s[a]!=s[d])|(s[a]==s[c])
   c,b,a,d=b,a,d,c
 
-R(g[-1]).v=A()
+R(g[a]).v=A()
 print(sum(R(a).a for a in g))
 print(sum(R(a).b for a in g))
