@@ -25,7 +25,7 @@ for se in range(w*w):
  nw=se-w-1
  sw=se-w
  for()in[()]*4:
-  if s[nw]!=s[ne] and (s[nw]!=s[sw])|(s[nw]==s[se]): R(g[nw]).b += 1
+  if s[nw]!=s[ne]: R(g[nw]).b += (s[nw]!=s[sw])|(s[nw]==s[se])
   nw,ne,se,sw=ne,se,sw,nw
 
 R(g[-1]).b=0
