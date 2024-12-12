@@ -17,13 +17,13 @@ for i in range(w*w):
    R(g[i]).a += R(g[j]).a
    R(g[j]).v = g[i]
 
-for se in range(w*w):
- ne=se-1
- nw=se-w-1
- sw=se-w
+for a in range(w*w):
+ b=a-1
+ c=a-w-1
+ d=a-w
  for()in[()]*4:
-  if s[nw]!=s[ne]: R(g[nw]).b += (s[nw]!=s[sw])|(s[nw]==s[se])
-  nw,ne,se,sw=ne,se,sw,nw
+  if s[c]!=s[b]: R(g[c]).b += (s[c]!=s[d])|(s[c]==s[a])
+  c,b,a,d=b,a,d,c
 
 R(g[-1]).v=A()
 print(sum(R(a).a for a in g))
