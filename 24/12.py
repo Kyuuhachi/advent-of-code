@@ -8,17 +8,13 @@ def R(n):
  return n
 
 g=[A()for _ in s]
-for i in range(w*w):
- for j in i-1,i-w:
-  if s[j]==s[i] and R(g[j]) != R(g[i]):
-   R(g[j]).v = g[i]
-
 for a in range(w*w):
  b=a-1
  c=a-w-1
  d=a-w
  for()in[()]*4:
   if s[a]!=s[b]:R(g[a]).b += ((s[a]!=s[d])|(s[a]==s[c]))+1j
+  elif R(g[a])!=R(g[b]):R(g[a]).b += R(g[b]).b;R(g[b]).v = g[a]
   c,b,a,d=b,a,d,c
 
 R(g[a]).b=0
