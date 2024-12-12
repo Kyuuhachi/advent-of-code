@@ -1,6 +1,6 @@
-s=open("12.in","rb").read()
-w=s.find(10)+1
-s+=b'\n'*w
+s=open("12.in").read()
+w=s.find('\n')+1
+s+='\n'*w
 class J:v=b=0
 def R(v):
  while v.v:v,v.v=v.v,v.v.v
