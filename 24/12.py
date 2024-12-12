@@ -18,7 +18,7 @@ for a in range(w*w):
  c=a-w-1
  d=a-w
  for()in[()]*4:
-  if s[c]!=s[b]:R(g[c]).a+=1; R(g[c]).b += (s[c]!=s[d])|(s[c]==s[a])
+  if s[a]!=s[b]:R(g[a]).a+=1; R(g[a]).b += (s[a]!=s[d])|(s[a]==s[c])
   c,b,a,d=b,a,d,c
 
 R(g[-1]).v=A()
