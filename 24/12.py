@@ -7,7 +7,7 @@ def R(v):
  return v
 g=[J()for _ in s]
 for a in range(w*w):
- for k in[a,b:=a-1,c:=b-w,d:=a-w]:
+ for d in[a-w,a,b:=a-1,c:=b-w]:
   d,A,B,c=a,R(g[a:=b]),R(g[b:=c]),d;S=s[a]
   if S!=s[b]:A.b+=1-(s[d]==S!=s[c])+1j
   elif A!=B:A.b+=B.b;B.v=A
