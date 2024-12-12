@@ -9,9 +9,7 @@ def R(n):
 
 g=[A()for _ in s]
 for a in range(w*w):
- b=a-1
- c=a-w-1
- d=a-w
+ b,c,d=a-1,a-w-1,a-w
  for()in[()]*4:
   if s[a]!=s[b]:R(g[a]).b += ((s[a]!=s[d])|(s[a]==s[c]))+1j
   elif R(g[a])!=R(g[b]):R(g[a]).b += R(g[b]).b;R(g[b]).v = g[a]
