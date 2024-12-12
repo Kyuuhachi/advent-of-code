@@ -4,7 +4,7 @@ s+=b'\n'*w
 
 class J:v=b=0
 def R(n):
- while type(n.v)==J:n,n.v=n.v,n.v.v
+ while n.v:n,n.v=n.v,n.v.v
  return n
 
 g=[J()for _ in s]
