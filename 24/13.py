@@ -8,7 +8,6 @@ for s in re.finditer(r'\D*(\d+)'*6,open("13.in").read()):
  for i in 0,1:
   A=d*x-c*y
   B=a*y-b*x
-  if A%D+B%D==0:
-   k[i]+=(3*A+B)/D
+  k[i]+=(3*A+B)/D*(A%D+B%D==0)
   x+=W;y+=W
 print(*k)
