@@ -11,6 +11,7 @@ for i in[0]*100:
 K=lambda X,Y:sum((y-H//2)*Y>0<X*(x-W//2)for x,y,*_ in R)
 print(K(1,1)*K(1,-1)*K(-1,1)*K(-1,-1))
 
+R=[]
 from collections import Counter
 for l in open("14.in"):
  R+=[[*map(int,re.findall(r"-?\d+",l))]]
@@ -35,8 +36,19 @@ K(crt(60,83))
 K(crt(63,84))
 
 import zlib
+# A=[]
+# for t in range(W*H):
+#  c={((x+X*t)%W,(y+Y*t)%H)for x,y,X,Y in R}
+#  A+=[(len(zlib.compress(bytes((i%W,i//W)in c for i in range(W*H)))),t)]
+# print(min(A)[1])
+
 A=[]
-for t in range(W*H):
- c={((x+X*t)%W,(y+Y*t)%H)for x,y,X,Y in R}
- A+=[(len(zlib.compress(bytes((i%W,i//W)in c for i in range(W*H)))),t)]
-print(min(A)[1])
+for t in range(W):
+ a={(x+X*t)%W for x,y,X,Y in R}
+ A+=[(len(zlib.compress(bytes(i in a for i in range(W)))),t)]
+print(sorted(A))
+A=[]
+for t in range(H):
+ a={(y+Y*t)%H for x,y,X,Y in R}
+ A+=[(len(zlib.compress(bytes(i in a for i in range(H)))),t)]
+print(sorted(A))
