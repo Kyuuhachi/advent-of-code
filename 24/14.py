@@ -2,7 +2,7 @@ import re
 W,H=101,103
 R=[[*map(int,re.findall(r"-?\d+",l))]for l in open("14.in")]
 
-K=lambda a,b:sum(((y+Y*100)%H-H//2)*b>0<a*((x+X*100)%W-W//2)for x,y,X,Y in R)
+K=lambda a,b:sum(((y+Y*100)%H-51)*b>0<a*((x+X*100)%W-50)for x,y,X,Y in R)
 print(K(1,1)*K(1,-1)*K(-1,1)*K(-1,-1))
 
 import zlib
