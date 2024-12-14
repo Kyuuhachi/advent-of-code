@@ -33,13 +33,7 @@ import zlib
 #  A+=[(len(zlib.compress(bytes((i%W,i//W)in c for i in range(W*H)))),t)]
 # print(min(A)[1])
 
-A=[]
-for t in range(W):
- a={(x+X*t)%W for x,y,X,Y in R}
- A+=[(len(zlib.compress(bytes(i in a for i in range(W)))),t)]
-print(sorted(A))
-A=[]
-for t in range(H):
- a={(y+Y*t)%H for x,y,X,Y in R}
- A+=[(len(zlib.compress(bytes(i in a for i in range(H)))),t)]
-print(sorted(A))
+g=lambda a:len(zlib.compress(bytes(i in a for i in range(H))))
+A=max(range(W),key=lambda t:g({(x+X*t)%W for x,y,X,Y in R}))
+B=max(range(H),key=lambda t:g({(y+Y*t)%H for x,y,X,Y in R}))
+print(C(B,A))
