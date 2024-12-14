@@ -34,5 +34,9 @@ K(6446)
 K(crt(60,83))
 K(crt(63,84))
 
-
-#222997632 too high
+import zlib
+A=[]
+for t in range(W*H):
+ c={((x+X*t)%W,(y+Y*t)%H)for x,y,X,Y in R}
+ A+=[(len(zlib.compress(bytes((i%W,i//W)in c for i in range(W*H)))),t)]
+print(min(A)[1])
