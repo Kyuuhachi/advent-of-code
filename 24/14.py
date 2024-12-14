@@ -19,7 +19,7 @@ def K(t):
  print()
 
 def crt(a, b):
- return(a*W*pow(H,-1,W)+b*H*pow(W,-1,H))%(H*W)
+ return(a*5151+b*5253)%10403
 
 K(6346)
 K(6446)
