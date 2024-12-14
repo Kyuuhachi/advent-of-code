@@ -3,19 +3,11 @@ R=[]
 W,H=101,103
 for l in open("14.in"):
  R+=[[*map(int,re.findall(r"-?\d+",l))]]
-for i in[0]*100:
- for r in R:
-  r[0]+=r[2];r[1]+=r[3]
-  r[0]%=W;r[1]%=H
 
-K=lambda X,Y:sum((y-H//2)*Y>0<X*(x-W//2)for x,y,*_ in R)
+K=lambda X,Y:sum(((y+A*100)%H-H//2)*Y>0<X*((x+B*100)%W-W//2)for x,y,B,A in R)
 print(K(1,1)*K(1,-1)*K(-1,1)*K(-1,-1))
 
-R=[]
 from collections import Counter
-for l in open("14.in"):
- R+=[[*map(int,re.findall(r"-?\d+",l))]]
-
 def K(t):
  c=Counter(((x+X*t)%W,(y+Y*t)%H)for x,y,X,Y in R)
  for i in range(H):
