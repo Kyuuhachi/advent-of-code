@@ -18,14 +18,13 @@ def K(t):
  print()
  print()
 
-def crt(a, b):
- return(a*5151+b*5253)%10403
+C=lambda a,b:(a*5151+b*5253)%10403
 
 K(6346)
 K(6446)
 
-K(crt(60,83))
-K(crt(63,84))
+K(C(60,83))
+K(C(63,84))
 
 import zlib
 # A=[]
