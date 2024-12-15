@@ -1,5 +1,5 @@
 a,b=open("15.in").read().split("\n\n")
-def F(n,*G):
+for*G,n in(0,1),(-1,0,1,2):
  w=a.find('\n')*n+n
  r=a.find('@')*n
  B={i*n for i in range(len(a))if a[i]=='O'}
@@ -22,5 +22,3 @@ def F(n,*G):
    B|={v+d for v in v}
    r+=d
  print(sum(x%w+x//w*100 for x in B))
-F(1,0)
-F(2,-1,0,1)
