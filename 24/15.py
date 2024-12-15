@@ -12,9 +12,9 @@ for*G,n in(0,1),(-1,0,1,2):
   while R-S:
    t,*_=R-S
    S|={t}
-   if t in W:
+   if{t}<W:
     break
-   if t in B:
+   if{t}<B:
     v|={t}
     R|={t+d+g for g in G}
   else:
