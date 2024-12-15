@@ -1,10 +1,11 @@
 a,b=open("15.in",'rb').read().split(b"\n\n")
+F=a.find
 for*G,n in(0,1),(-1,0,1,2):
- r=a.find(64)*n
+ r=F(64)*n
  B={i*n for i,c in enumerate(a) if c==79}
  W={i*n for i,c in enumerate(a) if c==35}
  for i in b:
-  d=[0,-1,w:=a.find(10)*n+n,-w,1][i%23%5]
+  d=[0,-1,w:=F(10)*n+n,-w,1][i%23%5]
   v=set()
   R={r-d-g*g for g in G}
   S={i}
