@@ -5,9 +5,9 @@ for*G,n in(0,1),(-1,0,1,2):
  B={i*n for i,c in enumerate(a) if c==79}
  W={i*n for i,c in enumerate(a) if c==35}
  for i in b:
-  d=[0,1,-w,w,-1][i%23%5]
+  d=[0,-1,w,-w,1][i%23%5]
   v=set()
-  R={r+d-g*g for g in G}
+  R={r-d-g*g for g in G}
   S={i}
   while R-S:
    t,*_=R-S
@@ -16,9 +16,9 @@ for*G,n in(0,1),(-1,0,1,2):
     break
    if{t}<B:
     v|={t}
-    R|={t+d+g for g in G}
+    R|={t-d+g for g in G}
   else:
    B-=v
-   B|={v+d for v in v}
-   r+=d
+   B|={v-d for v in v}
+   r-=d
  print(sum(x%w+x//w*100 for x in B))
