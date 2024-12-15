@@ -5,7 +5,7 @@ for*G,n in(0,1),(-1,0,1,2):
  B={i*n for i,c in enumerate(a) if c==79}
  W={i*n for i,c in enumerate(a) if c==35}
  for i in b:
-  d={60:-1,62:1,94:-w,118:w,10:0}[i]
+  d=[0,1,-w,w,-1][i%23%5]
   v=set()
   R={r+d-g*g for g in G}
   S={i}
