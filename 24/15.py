@@ -8,5 +8,5 @@ for*G,n in(0,1),(-1,0,1,2):
   while R-S:
    if R&W:break
    S|=R;v|=R&B;R={t-d+g for t in R&B for g in G}
-  else:B-=v;B|={v-d for v in v};r-=d
+  else:B^=v^{v-d for v in v};r-=d
  print(sum(x%w+x//w*100 for x in B))
