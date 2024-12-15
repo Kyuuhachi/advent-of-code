@@ -5,7 +5,6 @@ def F(n,*G):
  B={i*n for i in range(len(a))if a[i]=='O'}
  W={i*n for i in range(len(a))if a[i]=='#'}
  for i in b:
-  if i=='\n':continue
   d={'<':-1,'>':1,'^':-w,'v':w,'\n':0}[i]
   v=set()
   R={r+d-g*g for g in G}
