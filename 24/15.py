@@ -1,13 +1,12 @@
 a,b=open("15.in").read().split("\n\n")
 w=a.find('\n')+1
-D={'<':-1,'>':1,'^':-w,'v':w,'\n':0}
 
 r=a.find('@')
 B={i for i in range(len(a))if a[i]=='O'}
 W={i for i in range(len(a))if a[i]=='#'}
 for i in b:
  if i=='\n':continue
- d=D[i]
+ d={'<':-1,'>':1,'^':-w,'v':w,'\n':0}[i]
  v=set()
  R={r}
  while R:
@@ -23,13 +22,12 @@ for i in b:
 print(sum(x%w+x//w*100 for x in B))
 
 w*=2
-D={'<':-1,'>':1,'^':-w,'v':w,'\n':0}
 r=a.find('@')*2
 B={i*2 for i in range(len(a))if a[i]=='O'}
 W={i*2 for i in range(len(a))if a[i]=='#'}
 for i in b:
  if i=='\n':continue
- d=D[i]
+ d={'<':-1,'>':1,'^':-w,'v':w,'\n':0}[i]
  v=set()
  R={r+d,r+d-1}
  S={i}
