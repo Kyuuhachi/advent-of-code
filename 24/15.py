@@ -1,9 +1,10 @@
 a,b=open("15.in",'rb').read().split(b"\n\n")
 F=a.find
+E=lambda C:{i*n for i,c in enumerate(a)if c==C}
 for*G,n in(0,1),(-1,0,1,2):
  r=F(64)*n
- B={i*n for i,c in enumerate(a) if c==79}
- W={i*n for i,c in enumerate(a) if c==35}
+ B=E(79)
+ W=E(35)
  for i in b:
   d=[0,-1,w:=F(10)*n+n,-w,1][i%23%5]
   v=set()
