@@ -4,7 +4,7 @@ w=s.find(10)+1
 S=s.find(83)
 E=s.find(69)
 
-W={1:w,w:-1,-1:-w,-w:1}
+W={1:w,w:1}
 def P(W,P,D):
  W+=w;q,m=G[P][D]
  if W>q:return
@@ -18,7 +18,7 @@ H=[(1,S,1)]
 while H:
  w,p,d=heappop(H)
  P(1,p+d,d)
+ P(1,p-d,d)
  P(1e3,p,W[d])
- P(1e3,p,W[-d])
 A,B=min(G[E])
 print(A,len(B))
