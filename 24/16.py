@@ -2,9 +2,9 @@ from heapq import*
 s=open("16.in",'rb').read()
 def P(W,P,D):
  W+=w;q,m=G[P][D];o=G[p][d][1]|{P}
- if W>q:return
- if W<q:G[P][D]=W,o
- m|=o;heappush(H,(W,P,D))
+ if W<=q:
+  if W<q:G[P][D]=W,o
+  m|=o;heappush(H,(W,P,D))
 F=s.find
 K=F(10)
 S=F(83)
