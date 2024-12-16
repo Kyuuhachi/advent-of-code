@@ -6,11 +6,11 @@ E=s.find(69)
 
 W={1:w,w:-1,-1:-w,-w:1}
 def P(W,P,D):
- q,m=G[P][D]
- if W+w>q:return
- if W+w<q:G[P][D]=W+w,G[p][d][1]|{P}
+ W+=w;q,m=G[P][D]
+ if W>q:return
+ if W<q:G[P][D]=W,G[p][d][1]|{P}
  else:m|=G[p][d][1]|{P}
- heappush(H,(W+w,P,D))
+ heappush(H,(W,P,D))
 
 G=[S*[(1e9*(c!=35),0)]for c in s]
 G[S][1]=(1,{S})
