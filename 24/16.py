@@ -1,6 +1,5 @@
 from heapq import*
 s=open("16.in",'rb').read()
-W=s.find(10)+1
 S=s.find(83)
 E=s.find(69)
 
@@ -18,6 +17,6 @@ while H:
  w,p,d=heappop(H)
  P(1,p+d,d)
  P(1,p-d,d)
- P(1e3,p,d^1^W)
+ P(1e3,p,d^1^s.find(10)+1)
 A,B=min(G[E])
 print(A,len(B))
