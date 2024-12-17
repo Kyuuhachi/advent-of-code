@@ -4,12 +4,8 @@ G=[2*[-2 if c=='#' else 1e9]for c in s]
 w = s.find('\n')+1
 step = [1,w]
 
-def A(p, d, g, j):
- while G[p][d] > g:
-  G[p][d] = g
-  F.append((p, 1-d, g+1000))
-  p += step[d] * j
-  g += 1
+def A(p,d,g,j):
+ while G[p][d]>g:G[p][d]=g;F.append((p,1-d,g+1000));p+=step[d]*j;g+=1
 
 F=[(s.find('S'), 0, 1)]
 for p,d,g in F:t=G[p][d];A(p,d,g,-1);G[p][d]=t;A(p,d,g,1)
