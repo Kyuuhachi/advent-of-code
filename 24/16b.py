@@ -13,7 +13,7 @@ def advance(p, d, g, j):
 
 F=[(s.find('S'), 0, 1)]
 for p, d, g in F:
- t = G[p][d] # ugly workaround to keep state
+ t = G[p][d]
  advance(p, d, g, -1)
  G[p][d] = t
  advance(p, d, g, 1)
@@ -26,11 +26,3 @@ for p, d in P:
   if G[p+k][d] == G[p][d]-1: P.append((p+k, d))
 
 print(min(G[e]), len({a for a,b in P}))
-
-# for i,c in enumerate(s):
-#  def I(i, j):
-#   if (i, j) in P: return '\x1B\x5B48;5;9m'
-#   return ''
-#  print(f"{I(i,0)}{G[i][0]:5}\x1B\x5Bm", end=',')
-#  print(f"{I(i,1)}{G[i][1]:5}\x1B\x5Bm", end=' ')
-#  if c == '\n': print()
