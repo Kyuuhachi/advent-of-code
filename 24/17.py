@@ -4,11 +4,11 @@ a=int(a)
 
 N,M=[C[i+1]for i in range(0,16,2)if C[i]==1]
 
-def dec(a):return(b:=a&7^N)^(a>>b)&7^M
+D=lambda a:(b:=a&7^N)^(a>>b)&7^M
 
 o=[]
 while a:
- o+=[dec(a)]
+ o+=[D(a)]
  a >>= 3
 
 print(','.join(map(str,o)))
@@ -16,7 +16,7 @@ print(','.join(map(str,o)))
 F = lambda A, c: (
  k
  for b in range(8)
- if dec(a:=A<<3|b)==c[0]
+ if D(a:=A<<3|b)==c[0]
  for k in F(a, c[1:])
 ) if c else [A]
 print(next(F(0, C[::-1])))
