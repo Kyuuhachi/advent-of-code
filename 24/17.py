@@ -6,5 +6,5 @@ D=lambda a:(b:=a&7^N)^(a>>b)&7^M
 o=[]
 while a:o+=[D(a)];a>>=3
 print(*o,sep=',')
-F=lambda A,c:sum((F(a,c[:-1])for b in R if D(a:=A<<3|b)==c[-1]),[])if c else[A]
+F=lambda A,c:sum((F(a,c[:-1])for b in R if D(a:=A*8|b)==c[-1]),[])if c else[A]
 print(F(0,C)[0])
