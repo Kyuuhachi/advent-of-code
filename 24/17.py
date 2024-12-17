@@ -1,6 +1,6 @@
-s=open("17.in").read().split()
-a,b,c=map(int,s[2::3])
-*C,=map(int,s[-1].split(','))
+a,C=open("17.in").read().split()[2::8]
+a=int(a)
+*C,=map(int,C.split(','))
 
 N,M=[C[i+1]for i in range(0,16,2)if C[i]==1]
 
