@@ -5,11 +5,9 @@ a=int(a)
 N,M=[C[i+1]for i in range(0,16,2)if C[i]==1]
 
 def dec(a):
- b  = a & 7
- b ^= N
- b ^= (a >> b) & 7
- b ^= M
- return b
+ b=a&7^N
+ b^=(a>>b)
+ return b&7^M
 
 o=[]
 while a:
