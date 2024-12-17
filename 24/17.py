@@ -1,17 +1,27 @@
 s=open("17.in").read().split()
 a,b,c=map(int,s[2::3])
 *C,=map(int,s[-1].split(','))
-i=0
+
+N,M=[C[i+1]for i in range(0,16,2)if C[i]==1]
+
+def dec(a):
+ b  = a & 7
+ b ^= N
+ b ^= (a >> b) & 7
+ b ^= M
+ return b
+
 o=[]
-while i<len(C):
- v=C[i+1];V=[0,1,2,3,a,b,c,0][v];i+=2
- match C[i-2]:
-  case 0:a=a>>V
-  case 1:b^=v
-  case 2:b=V%8
-  case 3 if a:i=v
-  case 4:b^=c
-  case 5:o+=[V%8]
-  case 6:b=a>>V
-  case 7:c=a>>V
+while a:
+ o+=[dec(a)]
+ a >>= 3
+
 print(','.join(map(str,o)))
+
+F = lambda A, c: (
+ k
+ for b in range(8)
+ if dec(a:=A<<3|b)==c[0]
+ for k in F(a, c[1:])
+) if c else [A]
+print(next(F(0, C[::-1])))
