@@ -5,7 +5,7 @@ S=1,f('\n')+1
 F=[(f('S'),0,1)]
 for p,d,g in F:
  for p,g,k in(p,g,k:=S[d]),(p-k,g+1,-k):
-  while G[p][d]>g:G[p][d]=g;F+=(p,1-d,g+1000),;p+=k;g+=1
+  while G[p][d]>g:G[p][d]=g;g+=1;F+=(p,1-d,g+999),;p+=k
 e=f('E')
 T=G[e]
 P=[(e,T[0]>T[1])]
