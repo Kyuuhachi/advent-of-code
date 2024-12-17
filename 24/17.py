@@ -15,7 +15,7 @@ print(','.join(map(str,o)))
 F = lambda A, c: (
  k
  for b in range(8)
- if D(a:=A<<3|b)==c[0]
- for k in F(a, c[1:])
+ if D(a:=A<<3|b)==c[-1]
+ for k in F(a, c[:-1])
 ) if c else [A]
-print(next(F(0, C[::-1])))
+print(next(F(0, C)))
