@@ -4,10 +4,7 @@ a=int(a)
 
 N,M=[C[i+1]for i in range(0,16,2)if C[i]==1]
 
-def dec(a):
- b=a&7^N
- b^=(a>>b)
- return b&7^M
+def dec(a):return(b:=a&7^N)^(a>>b)&7^M
 
 o=[]
 while a:
