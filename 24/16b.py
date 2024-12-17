@@ -21,8 +21,7 @@ for p, d, g in F:
 e = s.find('E')
 P = [(e, G[e][0] > G[e][1])]
 for p, d in P:
- if G[p][1-d] == G[p][d]-1000: P.append((p, 1-d))
- for k in [-step[d], step[d]]:
-  if G[p+k][d] == G[p][d]-1: P.append((p+k, d))
+ P+=[(p,1-d)]*(G[p][1-d]==G[p][d]-1000)
+ for k in-step[d],step[d]:P+=[(p+k,d)]*(G[p+k][d]==G[p][d]-1)
 
 print(min(G[e]), len({a for a,b in P}))
