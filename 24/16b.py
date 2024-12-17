@@ -1,5 +1,5 @@
 s=open("16.in").read()
-G=[2*[-2 if c=='#'else 1e9]for c in s]
+G=[2*[[-2,1e9][c!='#']]for c in s]
 S=1,s.find('\n')+1
 def A(p,d,g,j):
  while G[p][d]>g:G[p][d]=g;F.append((p,1-d,g+1000));p+=S[d]*j;g+=1
