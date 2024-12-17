@@ -8,7 +8,7 @@ def A(p,d,g,j):
  while G[p][d]>g:G[p][d]=g;F.append((p,1-d,g+1000));p+=S[d]*j;g+=1
 
 F=[(s.find('S'),0,1)]
-for p,d,g in F:t=G[p][d];A(p,d,g,-1);G[p][d]=t;A(p,d,g,1)
+for p,d,g in F:A(p,d,g,-1);A(p+S[d],d,g+1,1)
 
 e=s.find('E')
 P=[(e,G[e][0]>G[e][1])]
