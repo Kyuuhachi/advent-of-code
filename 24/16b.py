@@ -8,4 +8,4 @@ for p,d,g in F:
 e=s.find('E')
 P=[(e,G[e][0]>G[e][1])]
 for p,d in P:g=G[p][d]-1;P+=[(p,1-d)][G[p][1-d]-g+999:]+[(p+k,d)for k in[-S[d],S[d]]if G[p+k][d]==g]
-print(min(G[e]),len({a for a,b in P}))
+print(min(G[e]),len(dict(P)))
