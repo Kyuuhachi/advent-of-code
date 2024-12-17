@@ -7,7 +7,5 @@ for p,d,g in F:
   while G[p][d]>g:G[p][d]=g;F+=[(p,1-d,g+1000)];p+=k;g+=1
 e=s.find('E')
 P=[(e,G[e][0]>G[e][1])]
-for p,d in P:
- g=G[p][d]-1;P+=[(p,1-d)]*(G[p][1-d]==g-999)
- for k in-S[d],S[d]:P+=[(p+k,d)]*(G[p+k][d]==g)
+for p,d in P:g=G[p][d]-1;P+=[(p,1-d)]*(G[p][1-d]==g-999)+[(p+k,d)for k in[-S[d],S[d]]if G[p+k][d]==g]
 print(min(G[e]),len({a for a,b in P}))
