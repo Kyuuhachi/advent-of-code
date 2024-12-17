@@ -8,7 +8,7 @@ for p,d,g in F:A(p,d,g,-1);A(p+S[d],d,g+1,1)
 e=s.find('E')
 P=[(e,G[e][0]>G[e][1])]
 for p,d in P:
- g=G[p][d]
- P+=[(p,1-d)]*(G[p][1-d]==g-1000)
- for k in-S[d],S[d]:P+=[(p+k,d)]*(G[p+k][d]==g-1)
+ g=G[p][d]-1
+ P+=[(p,1-d)]*(G[p][1-d]==g-999)
+ for k in-S[d],S[d]:P+=[(p+k,d)]*(G[p+k][d]==g)
 print(min(G[e]),len({a for a,b in P}))
