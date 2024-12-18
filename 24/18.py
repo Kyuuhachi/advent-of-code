@@ -1,5 +1,4 @@
-I=open("18.in").read().split()
-I=[(*map(int,s.split(',')),) for s in I]
+I=[(*map(int,s[:-1].split(',')),) for s in open("18.in")]
 def F(n):
  P=[(0,0,0)]
  S={p:-1 for p in I[:n]}
