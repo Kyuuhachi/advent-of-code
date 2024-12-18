@@ -5,8 +5,8 @@ def F(n):
  for x,y,s in P:
   if(x,y)==(70,70):return s
   if{(x,y)}-S and 0<=x<71 and 0<=y<71:
-   S|={(x,y)};s+=1
-   P+=[(x-1,y,s),(x+1,y,s),(x,y-1,s),(x,y+1,s)]
+   S|={(x,y)}
+   P+=[(x-1,y,w:=s+1),(x+1,y,w),(x,y-1,w),(x,y+1,w)]
 print(F(m:=1024))
 
 M=len(I)
