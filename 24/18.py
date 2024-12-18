@@ -6,7 +6,7 @@ def F(n):
   if(70,70)==v:return s
 print(F(m:=1024))
 M=len(I)
-while m<M:
- if F(q:=m+M>>1):m=q+1
+while m+1<M:
+ if F(q:=m+M>>1):m=q
  else:M=q
-print(*I[m-1],sep=',')
+print(*I[m],sep=',')
