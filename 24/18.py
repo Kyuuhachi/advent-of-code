@@ -5,7 +5,7 @@ def F(n):
  for x,y,s in P:
   if{v:=(x,y)}-S and 0<=x<71 and 0<=y<71:
    S|={v}
-   P+=[(x-1,y,w:=s+1),(x+1,y,w),(x,y-1,w),(x,y+1,w)]
+   P+=(x-1,y,w:=s+1),(x+1,y,w),(x,y-1,w),(x,y+1,w)
   if v==(70,70):return s
 print(F(m:=1024))
 
