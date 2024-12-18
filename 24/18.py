@@ -11,6 +11,6 @@ print(F(m:=1024))
 
 M=len(I)
 while m<M:
- if F(q:=(m+M)//2):m=q+1
+ if F(q:=m+M>>1):m=q+1
  else:M=q
 print(*I[m-1],sep=',')
