@@ -1,4 +1,4 @@
-I=[(*map(int,s[:-1].split(',')),) for s in open("18.in")]
+I=[(*map(int,s[:-1].split(',')),)for s in open("18.in")]
 def F(n):
  P=[[0]*3];S={*I[:n]}
  for x,y,s in P:
