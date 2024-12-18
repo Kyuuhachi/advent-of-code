@@ -1,5 +1,5 @@
 s=open("16.in").read()
-G=[2*[-2+1e9*(c!='#')]for c in s]
+G=[2*[-2+1e9*(c>s)]for c in s]
 f=s.find
 S=1,f('\n')+1
 F=[(f('S'),0,1)]
