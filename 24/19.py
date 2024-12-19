@@ -8,5 +8,4 @@ def f(s):
   if s.startswith(g):
    n += f(s[len(g):])
  return n
-print(sum(f(s)!=0 for s in S))
-print(sum(f(s) for s in S))
+print(sum(0!=f(s)for s in S),sum(f(s)for s in S))
