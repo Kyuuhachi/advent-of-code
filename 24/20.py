@@ -1,13 +1,9 @@
 s=open("20.in").read()
-w=s.find('\n')+1
-M={}
 p=s.find('S')
-d=0
-D=1,-1,w,-w
-while s[p]!='E':
- for x in D:
-  if s[p+x]!='#' and p+x not in M:M[p]=d;p+=x;d+=1
-M[p]=d
+M={p:0}
+P=0
+for x in[-1,w:=s.find('\n')+1,1,-w]*w*w:
+ if s<s[p+x]and P+x:P=x;p+=x;M[p]=len(M)
 
 n=0
 k = 0
