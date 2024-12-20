@@ -13,6 +13,5 @@ for a in M:
  for dx in range(-20,21):
   if(a+dx)//w!=a//w:continue
   for dy in range(r:=abs(dx)-20,1-r):
-   d=M[a]-M.get(b:=a+dx+dy*w,1e9)-abs(a%w-b%w)-abs(a//w-b//w)
-   if d>=100:n+=1
+   if M[a]-M.get(b:=a+dx+dy*w,1e9)-abs(a%w-b%w)-abs(a//w-b//w)>99:n+=1
 print(n)
