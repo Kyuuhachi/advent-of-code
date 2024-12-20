@@ -8,9 +8,9 @@ R=range
 A=abs
 for x in 2,20:
  print(sum(
-M[a]-M.get(b:=a+X+Y*w,1e9)-A(a%w-b%w)-A(a//w-b//w)>99
+M[a]-M.get(b:=a+X+Y*w,1e9)>99+A(a%w-b%w)+A(a//w-b//w)
 for a in M
 for X in R(-x,x+1)
-if-1<a%w+X<w
 for Y in R(A(X)-x,1-A(X)+x)
+if-1<a%w+X<w
  ))
