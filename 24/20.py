@@ -11,6 +11,6 @@ for a in M:
  k += 1
  if k % 10 == 0:print(k,'/',len(M))
  for dx in range(-20,21):
-  if(a+dx)//w!=a//w:continue
-  for dy in range(r:=abs(dx)-20,1-r):n+=M[a]-M.get(b:=a+dx+dy*w,1e9)-abs(a%w-b%w)-abs(a//w-b//w)>99
+  if(a+dx)//w==a//w:
+   for dy in range(r:=abs(dx)-20,1-r):n+=M[a]-M.get(b:=a+dx+dy*w,1e9)-abs(a%w-b%w)-abs(a//w-b//w)>99
 print(n)
