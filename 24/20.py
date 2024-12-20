@@ -1,6 +1,5 @@
 s=open("20.in").read()
-p=s.find('S')
-M={p:0}
+p,=M={s.find('S'):0}
 P=0
 for x in[-1,w:=s.find('\n')+1,1,-w]*w*w:
  if s<s[p+x]and P+x:P=x;p+=x;M[p]=len(M)
