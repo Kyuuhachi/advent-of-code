@@ -10,13 +10,6 @@ while s[p]!='E':
 M[p]=d
 
 n=0
-for a in M:
- for x in D:
-  d=M.get(a+x+x,M[a])-M[a]-2
-  if d>=100:n+=1
-# print(n)
-
-n=0
 k = 0
 for a in M:
  k += 1
