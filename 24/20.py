@@ -5,11 +5,12 @@ P=0
 for x in[-1,w:=f('\n')+1,1,-w]*w*w:
  if s<s[p+x]and P+x:P=x;p+=x;M[p]=len(M)
 R=range
+A=abs
 for x in 2,20:
  print(sum(
-M[a]-M.get(b:=a+X+Y*w,1e9)-abs(a%w-b%w)-abs(a//w-b//w)>99
+M[a]-M.get(b:=a+X+Y*w,1e9)-A(a%w-b%w)-A(a//w-b//w)>99
 for a in M
 for X in R(-x,x+1)
 if-1<a%w+X<w
-for Y in R(abs(X)-x,1-abs(X)+x)
+for Y in R(A(X)-x,1-A(X)+x)
  ))
