@@ -5,7 +5,7 @@ def H(x):
  x ^= x << 11 & 0xFFFFFF
  return x
 
-G=[0]*19**4
+G={}
 n = 0
 for i in s:
  j = [i%10]
@@ -16,9 +16,7 @@ for i in s:
  g = {}
  j=j[::-1]
  for a,b,c,d,e in zip(j,j[1:],j[2:],j[3:],j[4:]):
-  p = (b-a,c-b,d-c,e-d)
-  p = sum(p*19**n for n,p in enumerate(p))
-  g[p] = e
- for k,v in g.items(): G[k] += v
+  g[b-a,c-b,d-c,e-d] = e
+ for k,v in g.items(): G[k]=G.get(k,0)+v
 print(n)
-print(max(G))
+print(max(G.values()))
