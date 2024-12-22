@@ -1,7 +1,7 @@
 import functools as F
 @F.cache
 def G(s,N,B,H):
- if N==0:return len(s)+1
+ if-1==N:return 1
  o=0
  f=B.find;p=f('A');A=N-1,' ^A<v>',0
  for c in s+'A':
