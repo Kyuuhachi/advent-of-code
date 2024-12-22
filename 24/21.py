@@ -2,19 +2,19 @@ import functools as F
 s=open("21.in").read().split()
 
 @F.cache
-def G(s,N,board):
+def G(s,N,B):
  if N==0:return len(s)
- out=0
- pos=board.find('A')
- hole = board.find(' ')
+ o=0
+ p=B.find('A')
+ H=B.find(' ')
  for c in s:
-  npos=board.find(c)
-  dx=npos%3-pos%3;   dx='>'*dx+'<'*-dx
-  dy=npos//3-pos//3; dy='v'*dy+'^'*-dy
+  P=B.find(c)
+  x=P%3-p%3;x='>'*x+'<'*-x
+  y=P//3-p//3;y='v'*y+'^'*-y
   k=[]
-  if npos%3!=hole%3 or pos//3!=hole//3:k+=[G(dx+dy+'A',N-1,' ^A<v>')]
-  if pos%3!=hole%3 or npos//3!=hole//3:k+=[G(dy+dx+'A',N-1,' ^A<v>')]
-  out+=min(k)
-  pos=npos
- return out
+  if P%3!=H%3 or p//3!=H//3:k+=[G(x+y+'A',N-1,' ^A<v>')]
+  if p%3!=H%3 or P//3!=H//3:k+=[G(y+x+'A',N-1,' ^A<v>')]
+  o+=min(k)
+  p=P
+ return o
 for N in 3,26:print(sum(int(i[:-1])*G(i,N,'789456123 0A')for i in s))
