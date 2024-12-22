@@ -1,4 +1,5 @@
-def H(x):x^=x<<6&0xFFFFFF;x^=x>>5;x^=x<<11&0xFFFFFF;return x
+V=1<<24
+def H(x):x^=x<<6;x%=V;x^=x>>5;x^=x<<11;return x%V
 G={}
 n=0
 for i in open("22.in"):
