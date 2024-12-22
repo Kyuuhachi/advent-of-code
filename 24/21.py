@@ -17,11 +17,8 @@ def G(s,N,board):
   out+=min(k)
   pos=npos
  return out
-NUMPAD = '789456123 0A'
-DIRPAD = ' ^A<v>'
-
-f=lambda*a:G(*a,NUMPAD)
-g=lambda*a:G(*a,DIRPAD)
+f=lambda*a:G(*a,'789456123 0A')
+g=lambda*a:G(*a,' ^A<v>')
 
 print(sum(int(i[:-1])*f(i, 3)for i in s))
 print(sum(int(i[:-1])*f(i, 26)for i in s))
