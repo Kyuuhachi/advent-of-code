@@ -13,10 +13,7 @@ for i in s:
   i = H(i)
   j.append(i%10)
  n += i
- g = {}
  j=j[::-1]
- for a,b,c,d,e in zip(j,j[1:],j[2:],j[3:],j[4:]):
-  g[b-a,c-b,d-c,e-d] = e
- for k,v in g.items(): G[k]=G.get(k,0)+v
+ for k,v in {(b-a,c-b,d-c,e-d):e for a,b,c,d,e in zip(j,j[1:],j[2:],j[3:],j[4:])}.items(): G[k]=G.get(k,0)+v
 print(n)
 print(max(G.values()))
