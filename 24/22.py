@@ -1,9 +1,4 @@
-def H(x):
- x ^= x << 6 & 0xFFFFFF
- x ^= x >> 5
- x ^= x << 11 & 0xFFFFFF
- return x
-
+def H(x):x^=x<<6&0xFFFFFF;x^=x>>5;x^=x<<11&0xFFFFFF;return x
 G={}
 n=0
 for i in open("22.in"):
