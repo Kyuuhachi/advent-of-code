@@ -17,8 +17,5 @@ def G(s,N,board):
   out+=min(k)
   pos=npos
  return out
-f=lambda*a:G(*a,'789456123 0A')
 g=lambda*a:G(*a,' ^A<v>')
-
-print(sum(int(i[:-1])*f(i, 3)for i in s))
-print(sum(int(i[:-1])*f(i, 26)for i in s))
+for N in 3,26:print(sum(int(i[:-1])*G(i,N,'789456123 0A')for i in s))
