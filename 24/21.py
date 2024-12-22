@@ -1,6 +1,4 @@
 import functools as F
-s=open("21.in").read().split()
-
 @F.cache
 def G(s,N,B,H):
  if N==0:return len(s)
@@ -13,4 +11,4 @@ def G(s,N,B,H):
   o+=min([G(x+y+'A',*A)][:P%3 or p//3!=H]+[G(y+x+'A',*A)][:p%3 or P//3!=H])
   p=P
  return o
-for N in 3,26:print(sum(int(i[:-1])*G(i,N,'789456123 0A',3)for i in s))
+for N in 3,26:print(sum(int(i[:-1])*G(i,N,'789456123 0A',3)for i in open("21.in").read().split()))
