@@ -1,4 +1,3 @@
-*s,=map(int,open("22.in").read().split())
 def H(x):
  x ^= x << 6 & 0xFFFFFF
  x ^= x >> 5
@@ -7,7 +6,7 @@ def H(x):
 
 G={}
 n=0
-for i in s:
+for i in map(int,open("22.in").read().split()):
  j=[i%10]
  for _ in range(2000):i=H(i);j+=i%10,
  n+=i;j=j[::-1]
