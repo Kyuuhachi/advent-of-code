@@ -1,13 +1,14 @@
 g={}
 for l in open("23.in"):
- a,b=l[:2],l[3:5]
- for a,b in(a,b),(b,a):g.setdefault(a,set()).add(b)
+ a,b=sorted([l[:2],l[3:5]])
+ g.setdefault(a,set()).add(b)
+ g.setdefault(b,set())
 
 n=0
 for a in g:
  for b in g[a]:
   for c in g[a]&g[b]:
-   if a<b<c and't'in{a[0],b[0],c[0]}:
+   if't'in{a[0],b[0],c[0]}:
     n+=1
 print(n)
 
