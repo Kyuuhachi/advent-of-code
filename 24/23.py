@@ -4,13 +4,7 @@ for l in open("23.in"):
  g.setdefault(a,set()).add(b)
  g.setdefault(b,set())
 
-n=0
-for a in g:
- for b in g[a]:
-  for c in g[a]&g[b]:
-   if't'in{a[0],b[0],c[0]}:
-    n+=1
-print(n)
+print(sum('t'in{a[0],b[0],c[0]}for a in g for b in g[a]for c in g[a]&g[b]))
 
 import functools as F
 @F.cache
