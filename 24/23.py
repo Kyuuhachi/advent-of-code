@@ -14,5 +14,5 @@ print(n)
 
 import functools as F
 @F.cache
-def a(w,s):return max((a((w|{x}),s&g[x])for x in s), key=len)if s else w
-print(','.join(sorted(a(frozenset(),frozenset(g)))))
+def a(w,s):return max((a((w+(x,)),s&g[x])for x in s), key=len)if s else w
+print(','.join(sorted(a((),frozenset(g)))))
