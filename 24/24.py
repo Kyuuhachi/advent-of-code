@@ -12,8 +12,8 @@ def f(k):
   case'AND',a,b:return f(a)&f(b)
   case v:return v
 z=0
-for k in sorted(I,reverse=1):
- if k[0]=='z':z=z<<1|f(k)
+for k in sorted(I)[::-1]:
+ if'z'<k:z=z<<1|f(k)
 print(z)
 
 m=[]
