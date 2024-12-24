@@ -8,14 +8,13 @@ for l in open("24.in"):
 g=lambda o,a,b:a if o<'A'else f(a)&f(b)if o<'O'else f(a)|f(b)if o<'X'else f(a)^f(b)
 f=lambda k:g(*I[k])
 z=0
-for k in S(I)[::-1]:
- if'z'<k:z=z<<1|f(k)
 m=[]
 K='x00','y00'
 c,p=X[K],A[K]
 n=1
 while 1:
  N="%02d"%n;K='x'+N,'y'+N
+ z|=f('z'+N)<<n
  if{K}-{*X}:break
  if'z'<p:c,p=p,c;m+=c,p
  a,b=X[K],A[K]
