@@ -1,3 +1,4 @@
+S=sorted
 I={}
 A,X,O={},{},{}
 for l in open("24.in"):
@@ -7,7 +8,7 @@ for l in open("24.in"):
 g=lambda o,a,b:a if o<'A'else f(a)&f(b)if o<'O'else f(a)|f(b)if o<'X'else f(a)^f(b)
 f=lambda k:g(*I[k])
 z=0
-for k in sorted(I)[::-1]:
+for k in S(I)[::-1]:
  if'z'<k:z=z<<1|f(k)
 m=[]
 K='x00','y00'
@@ -23,4 +24,4 @@ while 1:
  if'z'<b:c,b=b,c;m+=c,b
  if'z'<d:c,d=d,c;m+=c,d
  p=O[d,b];n+=1
-print(z,','.join(sorted(m)))
+print(z,','.join(S(m)))
