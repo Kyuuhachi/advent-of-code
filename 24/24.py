@@ -12,12 +12,12 @@ while 1:
  N="%02d"%n
  K='x'+N,'y'+N
  if K not in X:break
- if p[0]=='z':c,p=p,c;m+=[c,p]
+ if p>'z':c,p=p,c;m+=[c,p]
  a,b=X[K],A[K]
  if(p,b)in X:a,b=b,a;m+=[a,b]
  c,d=X[p,a],A[p,a]
- if b[0]=='z':c,b=b,c;m+=[c,b]
- if d[0]=='z':c,d=d,c;m+=[c,d]
+ if b>'z':c,b=b,c;m+=[c,b]
+ if d>'z':c,d=d,c;m+=[c,d]
  p=O[d,b]
  n+=1
 print(*sorted(m),sep=',')
