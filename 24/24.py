@@ -13,8 +13,7 @@ K='x00','y00'
 c,p=X[K],A[K]
 n=1
 while 1:
- N="%02d"%n;K='x'+N,'y'+N
- z|=f('z'+N)<<n
+ N="%02d"%n;K='x'+N,'y'+N;z|=f('z'+N)<<n
  if{K}-{*X}:break
  if'z'<p:c,p=p,c;m+=c,p
  a,b=X[K],A[K]
