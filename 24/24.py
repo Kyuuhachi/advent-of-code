@@ -6,7 +6,6 @@ for l in open("24.in"):
 m=[]
 K='x00','y00'
 c,p=X[K],A[K]
-assert c == 'z00', c
 n=1
 while 1:
  N="%02d"%n
