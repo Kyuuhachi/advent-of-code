@@ -1,4 +1,3 @@
-S=sorted
 I={}
 A,X,O={},{},{}
 for l in open("24.in"):
@@ -22,4 +21,4 @@ while 1:
  if'z'<b:c,b=b,c;m+=c,b
  if'z'<d:c,d=d,c;m+=c,d
  p=O[d,b];n+=1
-print(z,','.join(S(m)))
+print(z,','.join(sorted(m)))
