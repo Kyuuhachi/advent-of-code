@@ -14,7 +14,6 @@ def f(k):
 z=0
 for k in sorted(I)[::-1]:
  if'z'<k:z=z<<1|f(k)
-print(z)
 
 m=[]
 K='x00','y00'
@@ -32,4 +31,4 @@ while 1:
  if'z'<d:c,d=d,c;m+=c,d
  p=O[d,b]
  n+=1
-print(*sorted(m),sep=',')
+print(z,','.join(sorted(m)))
