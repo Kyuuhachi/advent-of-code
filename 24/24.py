@@ -1,7 +1,20 @@
+I={}
 A,X,O={},{},{}
 for l in open("24.in"):
  match l.split():
-  case [a,b,c,d,e]:G=globals()[b[0]];G[a,c]=G[c,a]=e
+  case [k,v]:I[k[:-1]]=int(v)
+  case [a,b,c,d,e]:I[e]=b,a,c;G=globals()[b[0]];G[a,c]=G[c,a]=e
+
+def f(k):
+ match I[k]:
+  case'XOR',a,b:return f(a)^f(b)
+  case'OR',a,b:return f(a)|f(b)
+  case'AND',a,b:return f(a)&f(b)
+  case v:return v
+z=0
+for k in sorted(I,reverse=1):
+ if k[0]=='z':z=z<<1|f(k)
+print(z)
 
 m=[]
 K='x00','y00'
