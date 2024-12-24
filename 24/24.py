@@ -16,7 +16,7 @@ c,p=X[K],A[K]
 n=1
 while 1:
  N="%02d"%n;K='x'+N,'y'+N
- if K not in X:break
+ if{K}-{*X}:break
  if'z'<p:c,p=p,c;m+=c,p
  a,b=X[K],A[K]
  if(p,b)in X:a,b=b,a;m+=a,b
