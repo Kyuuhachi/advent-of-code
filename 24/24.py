@@ -20,4 +20,4 @@ while 1:
  if d[0]=='z':c,d=d,c;m+=[c,d]
  p=O[d,b]
  n+=1
-print(','.join(sorted(m)))
+print(*sorted(m),sep=',')
