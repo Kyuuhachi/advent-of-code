@@ -2,7 +2,7 @@ I={}
 A,X,O={},{},{}
 for l in open("24.in"):
  match l.split():
-  case k,v:I[k[:-1]]=' ',int(v),0
+  case k,v:I[k[:-1]]='',int(v),0
   case a,b,c,d,e:I[e]=b,a,c;G=globals()[b[0]];G[a,c]=G[c,a]=e
 
 g=lambda o,a,b:a if o<'A'else f(a)&f(b)if o<'O'else f(a)|f(b)if o<'X'else f(a)^f(b)
