@@ -1,4 +1,5 @@
-v,w,u=50,0,0
+v=50
+w=u=0
 for l in open(0):
 	t=l[0]<'R'
 	k=v-t
