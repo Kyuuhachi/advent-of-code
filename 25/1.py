@@ -4,6 +4,5 @@ for l in open(0):
 	k=v
 	v+=int(l[1:-1])*(1-2*t)
 	w+=v%100<1
-	for i in range(min(k,v)+t, max(k,v)+t):
-		u+=i%100<1
+	u+=abs((v-t)//100-(k-t)//100)
 print(w,u)
