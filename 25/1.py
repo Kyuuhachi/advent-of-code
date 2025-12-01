@@ -1,7 +1,7 @@
 v=50
 w=u=0
 for l in open(0):
-	t=l[0]<'R'
+	t=l<'R'
 	k=v-t
 	v+=int(l[1:-1])*(1-2*t)
 	w+=v%100<1
