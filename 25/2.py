@@ -5,7 +5,7 @@ for L in open(0).read()[:-1].split(','):
  for i in range(2,10):
   for j in range(B):
    j=int(str(j)*i)
-   if j<A:continue
+   j*=j>=A
    if j>B:break
    n+=j*(i==2)
    S|={j}
