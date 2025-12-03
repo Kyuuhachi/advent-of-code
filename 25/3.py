@@ -1,5 +1,4 @@
-def F(I,M):
- i,s=0,""
+def F(I,M,i=0,s=""):
  for k in range(M,0,-1):
   i=max(range(i,len(L)-k),key=lambda i:L[i])
   s+=L[i]
