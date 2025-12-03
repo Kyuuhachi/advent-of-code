@@ -1,5 +1,5 @@
-def F(I,M,i=-1):
- for k in range(M,-1,-1):n[I]+=int(L[i:=max(range(i+1,len(L)-k-1),key=lambda i:L[i])]+'0'*k)
+def F(M,i=-1):
+ for k in range(M,-1,-1):n[M>6]+=int(L[i:=max(range(i+1,len(L)-k-1),key=lambda i:L[i])]+'0'*k)
 n=[0,0]
-for L in open(0):F(0,1);F(1,11)
+for L in open(0):F(1);F(11)
 print(n)
