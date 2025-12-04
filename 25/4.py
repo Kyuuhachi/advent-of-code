@@ -1,7 +1,6 @@
 i=open(0).read()
-R=range(len(i))
 W=i.find('\n')+1
-P={p for p in R if'?'<i[p]}
+P={p for p in range(len(i))if'?'<i[p]}
 n=[]
 o=1
 while o:
