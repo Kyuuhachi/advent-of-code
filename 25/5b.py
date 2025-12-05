@@ -1,5 +1,5 @@
 E=[]
-for L in open(0):E+=zip(map(int,L.split('-')),[-1,1])if'-'in L else[(int('0'+L),0)]
+for L in open(0):E+=zip(map(int,('0'+L).split('-')),[-('-'in L),1])
 n=d=0
 for V,D in sorted(E):
  d+=D<0
