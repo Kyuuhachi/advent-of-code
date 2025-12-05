@@ -4,7 +4,7 @@ for L in(I:=open(0)):
  A,B=map(int,L.split('-'))
  R+=(A,B+1),
 *I,=I
-n=m=0
+n=0
 P=0
-for A,B in sorted(R):K,P=max(A,P),max(B,P);m-=K-P;n+=sum(K<=int(i)<P for i in I)
-print(n,m)
+for A,B in sorted(R):K,P=max(A,P),max(B,P);n-=sum(K<=int(i)<P for i in I)*1j+K-P
+print(n*1j)
