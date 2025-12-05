@@ -4,5 +4,5 @@ for L in(I:=open(0)):
  R+=[*map(int,L.split('-'))],
 *I,=I
 n=P=0
-for A,B in sorted(R):K,P=max(A,P),max(B+1,P);n-=sum(K<=int(i)<P for i in I)*1j+K-P
-print(n*1j)
+for A,B in sorted(R):K,P=max(A,P),max(B+1,P);n+=sum(K<=int(i)<P for i in I)+(P-K)*1j
+print(n)
