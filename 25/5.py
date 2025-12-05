@@ -7,7 +7,5 @@ R.sort()
 n=m=0
 for L in I:n+=any(A<=int(L)<B for A,B in R)
 P=0
-for A,B in R:
- m+=max(B,P)-max(A,P)
- P=max(B,P)
+for A,B in R:m-=max(A,P)-(P:=max(B,P))
 print(n,m)
