@@ -1,6 +1,6 @@
 R=[]
 for L in(I:=open(0)):
- if L<'.':break
+ if'.'>L:break
  A,B=map(int,L.split('-'))
  R+=(A,B+1),
 R.sort()
