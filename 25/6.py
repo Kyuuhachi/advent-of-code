@@ -4,5 +4,5 @@ m=0
 M=[]
 for*L,O in [*zip(*I)][::-1]:
  M+=''.join(L),
- if O.strip():m+=eval(O.join(M[1:]));M=[]
+ if O in"+*":m+=eval(O.join(M[1:]));M=[]
 print(n,m)
