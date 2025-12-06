@@ -4,7 +4,6 @@ m=0
 B=zip(*I)
 for*L,O in B:
  for Q in B:
-  if''.join(Q).strip()=='':break
+  if''.join(Q).strip()=='':m+=eval("".join(L));break
   L+=O,*Q
- m+=eval("".join(L))
 print(n,m)
