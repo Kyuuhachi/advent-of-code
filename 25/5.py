@@ -1,8 +1,5 @@
-R=[]
-for L in(I:=open(0)):
- if'.'>L:break
- R+=[*map(int,L.split('-'))],
-*I,=I
-n=P=0
-for A,B in sorted(R):K,P=max(A,P),max(B+1,P);n+=sum(K<=int(i)<P for i in I)+(P-K)*1j
+E=[]
+for L in open(0):E+=zip(map(int,('0'+L).split('-')),[-('-'in L),1])
+n=d=0
+for V,D in sorted(E):d-=D;Q=D>0;n+=(D==0)*(d>0)+(V+Q)*D*(d+Q==1)*1j
 print(n)
