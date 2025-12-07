@@ -1,4 +1,4 @@
-N=len(L:=next(I:=open(0)))
+N=len(next(I:=open(0)))
 S=[0]*N
 S[N//2-1]=1
 n=0
