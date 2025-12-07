@@ -1,6 +1,6 @@
 N=len(L:=next(I:=open(0)))
 S=[0]*N
-S[L.index('S')]=1
+S[N//2-1]=1
 n=0
 for L in I:
  Z=*S,
