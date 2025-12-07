@@ -1,10 +1,11 @@
 L=next(I:=open(0))
-S=[0]*len(L)
+N=len(L)
+S=[0]*N
 S[L.index('S')]=1
 n=0
 for L in I:
  S2=[*S]
- for i in range(len(L)):
+ for i in range(N):
   if'^'==L[i]:s=S[i];S2[i-1]+=s;S2[i+1]+=s;S2[i]-=s;n+=s>0
  S=S2
 print(n,sum(S))
