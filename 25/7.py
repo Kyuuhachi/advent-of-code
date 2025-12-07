@@ -1,5 +1,4 @@
-L=next(I:=open(0))
-N=len(L)
+N=len(L:=next(I:=open(0)))
 S=[0]*N
 S[L.index('S')]=1
 n=0
