@@ -6,6 +6,5 @@ n=0
 for L in I:
  Z=[*S]
  for i in range(N):
-  if'^'==L[i]:s=S[i];Z[i-1]+=s;Z[i+1]+=s;Z[i]=0;n+=s>0
- S=Z
+  if'^'==L[i]:s=Z[i];S[i-1]+=s;S[i+1]+=s;S[i]=0;n+=s>0
 print(n,sum(S))
