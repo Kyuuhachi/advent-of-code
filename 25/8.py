@@ -1,6 +1,5 @@
-E=enumerate
 S=[]
-for i,L in E(open(0)):
+for i,L in enumerate(open(0)):
  X,Y,Z=map(int,L.split(','))
  S+=[i,X,Y,Z],
 D=sorted(
@@ -14,7 +13,8 @@ V=[J()for _ in S]
 def R(v):
  while v.v:v,v.v=v.v,v.v.v
  return v
-for q,(_,i,j)in E(D):
+n=0
+for _,i,j in D:
  A,B=R(V[i]),R(V[j])
  if A!=B:
   A.v=B
@@ -22,6 +22,7 @@ for q,(_,i,j)in E(D):
   if B.d==len(S):
    print(k,S[i][1]*S[j][1])
    break
- if q==1000:
+ if n==1000:
   p,q,r=sorted(A.d for A in V if not A.v)[-3:]
   k=p*q*r
+ n+=1
