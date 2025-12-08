@@ -1,9 +1,8 @@
 S=[]
-for L in open(0):S+=[*map(int,L.split(',')),len(S)],
+for L in open(n:=0):S+=[*map(int,L.split(',')),len(S)],
 class J:v=0;d=1
 V=[J()for _ in S]
 R=lambda v:v.v and R(v.v)or v
-n=0
 for _,i,j in sorted((sum((a-b)**2 for a,b in zip(I,J)),i,j)for*I,i in S for*J,j in S[:i]):
  A,B=R(V[i]),R(V[j]);n+=1
  if A!=B:A.v=B;B.d+=A.d
