@@ -1,9 +1,9 @@
 S=[]
 for L in open(0):S+=[*map(int,L.split(',')),len(S)],
 D=sorted(
- ((a-b)**2+(c-d)**2+(e-f)**2,i,j)
- for a,c,e,i in S
- for b,d,f,j in S
+ (sum((a-b)**2 for a,b in zip(I,J)),i,j)
+ for*I,i in S
+ for*J,j in S
  if i<j
 )
 class J:v=0;d=1
