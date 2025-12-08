@@ -1,5 +1,5 @@
 S=[]
-for i,L in enumerate(open(0)):S+=[i,*map(int,L.split(','))],
+for L in open(0):S+=[len(L),*map(int,L.split(','))],
 D=sorted(
  ((a-b)**2+(c-d)**2+(e-f)**2,i,j)
  for i,a,c,e in S
