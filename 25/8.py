@@ -1,9 +1,9 @@
 S=[]
-for L in open(0):S+=[len(L),*map(int,L.split(','))],
+for L in open(0):S+=[*map(int,L.split(',')),len(S)],
 D=sorted(
  ((a-b)**2+(c-d)**2+(e-f)**2,i,j)
- for i,a,c,e in S
- for j,b,d,f in S
+ for a,c,e,i in S
+ for b,d,f,j in S
  if i<j
 )
 class J:v=0;d=1
@@ -18,7 +18,7 @@ for _,i,j in D:
   A.v=B
   B.d+=A.d
   if B.d==len(S):
-   print(k,S[i][1]*S[j][1])
+   print(k,S[i][0]*S[j][0])
    break
  if n==1000:
   p,q,r=sorted(A.d for A in V if not A.v)[-3:]
