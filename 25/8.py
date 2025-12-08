@@ -7,4 +7,4 @@ for _,i,j in sorted((sum((a-b)**2 for a,b in zip(I,J)),i,j)for*I,i in S for*J,j 
  A,B=R(V[i]),R(V[j]);n+=1
  if A!=B:A.v=B;B.d+=A.d
  if B.d==len(S):print(k,S[i][0]*S[j][0]);break
- if n==999:*_,p,q,r=sorted(A.d for A in V if not A.v);k=p*q*r
+ if n==999:*_,p,q,r=sorted(A.d*(A.v==0)for A in V);k=p*q*r
