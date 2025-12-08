@@ -23,5 +23,5 @@ for q,(_,i,j)in E(D):
    print(k,S[i][1]*S[j][1])
    break
  if q==1000:
-  k=1
-  for v in sorted(A.d for A in V if not A.v)[-3:]:k*=v
+  p,q,r=sorted(A.d for A in V if not A.v)[-3:]
+  k=p*q*r
