@@ -20,9 +20,8 @@ for q,(_,i,j)in E(D):
   A.v=B
   B.d+=A.d
   if B.d==len(S):
-   print(S[i][1]*S[j][1])
+   print(k,S[i][1]*S[j][1])
    break
  if q==1000:
   k=1
   for v in sorted(A.d for A in V if not A.v)[-3:]:k*=v
-  print(k)
