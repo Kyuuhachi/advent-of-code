@@ -1,6 +1,6 @@
 S=[]
 Z=sorted
-for L in open(n:=0):S+=[*map(int,L.split(',')),len(S)],
+for L in open(n:=0):S+=[*eval(L),len(S)],
 T=1000
 *D,=V=[-1]*T
 R=lambda v:R(V[v])if-1<V[v]else v
