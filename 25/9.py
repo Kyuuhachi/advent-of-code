@@ -41,6 +41,7 @@ for (x0,y0),(x,y),(x2,y2) in zip(P[-1:]+P,P,P[1:]+P):
  k+=1
  print(k)
  for ox, oy in P:
-  if check():
-   m = max(m, ~abs(x-ox)*~abs(y-oy))
+  s=~abs(x-ox)*~abs(y-oy)
+  if s>m and check():
+   m = s
 print(m)
