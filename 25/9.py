@@ -6,10 +6,10 @@ O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 
 def I(A,B,C,D,E,F,G,H):
  a,b=Z((E,G));c,d=Z((F,H))
- if A == C:e,f=Z((B,D));return a<A<b and max(e,c)<min(f,d)
+ if A==C:e,f=Z((B,D));return a<A<b and max(e,c)<min(f,d)
  else:e,f=Z((A,C));return c<B<d and max(e,a)<min(f,b)
 
-m = 0
+m=0
 R=Z(zip(P,P[1:]+P,P[2:]+P))
 for A,B,C in R:
  for D in P:
