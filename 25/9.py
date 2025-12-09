@@ -27,9 +27,11 @@ def segment_intersects_rect(a, b, c, d):
   sxmin, sxmax = sorted((ax, bx))
   return ymin < ay < ymax and max(sxmin, xmin) < min(sxmax, xmax)
 
+n=0
 def check():
  if side((x0,y0),(x,y),(x2,y2),(ox,oy))<1: return 0
  for a,b in zip(P,P[1:]+P):
+  global n;n+=1
   if segment_intersects_rect(a,b,(x,y),(ox,oy)):
    return 0
  else:
@@ -45,3 +47,4 @@ for (x0,y0),(x,y),(x2,y2) in zip(P[-1:]+P,P,P[1:]+P):
   if s>m and check():
    m = s
 print(m)
+print("checks:", n)
