@@ -5,15 +5,9 @@ Z=sorted
 O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 
 def segment_intersects_rect(ax,ay,bx,by,cx,cy,dx,dy):
- xmin, xmax = Z((cx, dx))
- ymin, ymax = Z((cy, dy))
-
- if ax == bx:
-  symin, symax = Z((ay, by))
-  return xmin < ax < xmax and max(symin, ymin) < min(symax, ymax)
- else:
-  sxmin, sxmax = Z((ax, bx))
-  return ymin < ay < ymax and max(sxmin, xmin) < min(sxmax, xmax)
+ a,b=Z((cx,dx));c,d=Z((cy,dy))
+ if ax == bx:e,f=Z((ay,by));return a<ax<b and max(e,c)<min(f,d)
+ else:e,f=Z((ax,bx));return c<ay<d and max(e,a)<min(f,b)
 
 n=0
 m = 0
