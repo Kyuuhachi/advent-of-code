@@ -7,6 +7,6 @@ n=m=0
 R=Z(zip(P,P[1:]+P,P[2:]+P))
 for A,B,C in R:
  for D in P:
-  a,c,b,d=B+D;n=max(n,s:=~abs(a-b)*~abs(c-d))
-  if s-m>0<Z((O(*A+B+D),O(*B+C+D)))[O(*A+B+C)>0]and 1-any(I(*Y(*B+D)+Y(*a+b))for a,b,_ in R):m=s
+  y=a,b,c,d=Y(*B+D);n=max(n,s:=~(b-a)*~(d-c))
+  if s-m>0<Z((O(*A+B+D),O(*B+C+D)))[O(*A+B+C)>0]and 1-any(I(*y+Y(*a+b))for a,b,_ in R):m=s
 print(n,m)
