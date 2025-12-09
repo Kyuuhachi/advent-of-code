@@ -16,6 +16,5 @@ for A,B,C in(R):
  k+=1
  print(k,end="\r")
  for D in P:
-  s=X(*B,*D)
-  if s>m and Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]>0 and 1-any(I(*a,*b,*B,*D)for a,b,_ in R):m=s
+  if m<(s:=X(*B,*D))and Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]>0 and 1-any(I(*a,*b,*B,*D)for a,b,_ in R):m=s
 print(m)
