@@ -4,12 +4,6 @@ print(max(X(*A,*B)for A in P for B in P))
 Z=sorted
 O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 
-def side(a, b, c, d):
- t  = O(*a,*b,*c)
- o1 = O(*a,*b,*d)
- o2 = O(*b,*c,*d)
- return Z((o1,o2))[t>0]<1
-
 def segment_intersects_rect(ax,ay,bx,by,cx,cy,dx,dy):
  xmin, xmax = Z((cx, dx))
  ymin, ymax = Z((cy, dy))
@@ -29,7 +23,7 @@ for A,B,C in zip(P[-1:]+P,P,P[1:]+P):
  print(k,end="\r")
  for D in P:
   s=X(*B,*D)
-  if s<=m or side(A,B,C,D): continue
+  if s<=m or Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]<1: continue
   for a,b in zip(P,P[1:]+P):
    n+=1
    if segment_intersects_rect(*a,*b,*B,*D):
