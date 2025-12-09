@@ -9,7 +9,6 @@ def I(A,B,C,D,E,F,G,H):
  if A == C:e,f=Z((B,D));return a<A<b and max(e,c)<min(f,d)
  else:e,f=Z((A,C));return c<B<d and max(e,a)<min(f,b)
 
-n=0
 m = 0
 k=0
 *R,=zip(P[-1:]+P,P,P[1:]+P)
@@ -20,10 +19,8 @@ for A,B,C in R:
   s=X(*B,*D)
   if s<=m or Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]<1: continue
   for a,b,_ in R:
-   n+=1
    if I(*a,*b,*B,*D):
     break
   else:
     m = s
 print(m)
-print("checks:", n)
