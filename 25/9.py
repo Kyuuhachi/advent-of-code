@@ -1,13 +1,13 @@
 P=[eval(x)for x in open(0)]
 print(max(~(a-b)*~(c-d)for a,c in P for b,d in P))
-
+Z=sorted
 O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 
 def side(a, b, c, d):
  t  = O(*a,*b,*c)
  o1 = O(*a,*b,*d)
  o2 = O(*b,*c,*d)
- return sorted((o1,o2))[t>0]<1
+ return Z((o1,o2))[t>0]<1
 
 def segment_intersects_rect(a, b, c, d):
  ax, ay = a
@@ -15,14 +15,14 @@ def segment_intersects_rect(a, b, c, d):
  cx, cy = c
  dx, dy = d
 
- xmin, xmax = sorted((cx, dx))
- ymin, ymax = sorted((cy, dy))
+ xmin, xmax = Z((cx, dx))
+ ymin, ymax = Z((cy, dy))
 
  if ax == bx:
-  symin, symax = sorted((ay, by))
+  symin, symax = Z((ay, by))
   return xmin < ax < xmax and max(symin, ymin) < min(symax, ymax)
  else:
-  sxmin, sxmax = sorted((ax, bx))
+  sxmin, sxmax = Z((ax, bx))
   return ymin < ay < ymax and max(sxmin, xmin) < min(sxmax, xmax)
 
 n=0
