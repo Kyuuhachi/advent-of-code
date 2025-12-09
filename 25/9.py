@@ -1,13 +1,12 @@
 P=[eval(x)for x in open(0)]
 print(max(~(a-b)*~(c-d)for a,c in P for b,d in P))
 
-def orient(a, b, c):
- return (b[0] - a[0])*(c[1] - a[1]) - (b[1] - a[1])*(c[0] - a[0])
+O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 
 def side(a, b, c, d):
- t  = orient(a, b, c)
- o1 = orient(a, b, d)
- o2 = orient(b, c, d)
+ t  = O(*a,*b,*c)
+ o1 = O(*a,*b,*d)
+ o2 = O(*b,*c,*d)
  s = min(o1,o2) if t>0 else max(o1,o2)
  return (s>0)-(s<0)
 
