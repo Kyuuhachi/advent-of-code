@@ -10,12 +10,7 @@ def side(a, b, c, d):
  o2 = O(*b,*c,*d)
  return Z((o1,o2))[t>0]<1
 
-def segment_intersects_rect(a, b, c, d):
- ax, ay = a
- bx, by = b
- cx, cy = c
- dx, dy = d
-
+def segment_intersects_rect(ax,ay,bx,by,cx,cy,dx,dy):
  xmin, xmax = Z((cx, dx))
  ymin, ymax = Z((cy, dy))
 
@@ -37,7 +32,7 @@ for A,B,C in zip(P[-1:]+P,P,P[1:]+P):
   if s<=m or side(A,B,C,D): continue
   for a,b in zip(P,P[1:]+P):
    n+=1
-   if segment_intersects_rect(a,b,B,D):
+   if segment_intersects_rect(*a,*b,*B,*D):
     break
   else:
     m = s
