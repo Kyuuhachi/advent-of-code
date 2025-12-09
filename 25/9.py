@@ -11,7 +11,7 @@ def I(A,B,C,D,E,F,G,H):
 
 m = 0
 R=Z(zip(P[-1:]+P,P,P[1:]+P))
-for A,B,C in(R):
+for A,B,C in R:
  for D in P:
   if m<(s:=X(*B,*D))and Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]>0 and 1-any(I(*a,*b,*B,*D)for a,b,_ in R):m=s
 print(m)
