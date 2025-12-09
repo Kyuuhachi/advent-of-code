@@ -29,7 +29,7 @@ def segment_intersects_rect(a, b, c, d):
 
 n=0
 def check():
- if side((x0,y0),(x,y),(x2,y2),(ox,oy))<1: return 0
+ if side(A,(x,y),B,(ox,oy))<1: return 0
  for a,b in zip(P,P[1:]+P):
   global n;n+=1
   if segment_intersects_rect(a,b,(x,y),(ox,oy)):
@@ -39,7 +39,7 @@ def check():
 
 m = 0
 k=0
-for (x0,y0),(x,y),(x2,y2) in zip(P[-1:]+P,P,P[1:]+P):
+for A,(x,y),B in zip(P[-1:]+P,P,P[1:]+P):
  k+=1
  print(k)
  for ox, oy in P:
