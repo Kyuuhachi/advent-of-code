@@ -11,8 +11,8 @@ def I(A,B,C,D,E,F,G,H):
 
 m = 0
 k=0
-*R,=zip(P[-1:]+P,P,P[1:]+P)
-for A,B,C in R:
+R=Z(zip(P[-1:]+P,P,P[1:]+P))
+for A,B,C in(R):
  k+=1
  print(k,end="\r")
  for D in P:
