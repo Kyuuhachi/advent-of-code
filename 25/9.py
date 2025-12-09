@@ -3,7 +3,7 @@ X=lambda a,c,b,d:~abs(a-b)*~abs(c-d)
 print(max(X(*A,*B)for A in P for B in P))
 Z=sorted
 O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
-def I(A,B,C,D,E,F,G,H):a,b=Z((A,C));c,d=Z((B,D));e,f=Z((F,H));g,h=Z((E,G));return[a<E<b,c<F<d][F==H]&[max(e,c)<min(f,d),max(g,a)<min(h,b)][F==H]
+def I(A,B,C,D,E,F,G,H):a,c,b,d=Z((A,C))+Z((B,D));e,g,f,h=Z((E,G))+Z((F,H));return[a<E<c,b<F<d][F==H]&[max(f,b)<min(h,d),max(e,a)<min(g,c)][F==H]
 m=0
 R=Z(zip(P,P[1:]+P,P[2:]+P))
 for A,B,C in R:
