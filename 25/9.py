@@ -31,18 +31,16 @@ def check():
  if side((x0,y0),(x,y),(x2,y2),(ox,oy))<1: return 0
  for a,b in zip(P,P[1:]+P):
   if segment_intersects_rect(a,b,(x,y),(ox,oy)):
-   return 1
+   return 0
  else:
-  return 2
+  return 1
 
 m = 0
 k=0
 for (x0,y0),(x,y),(x2,y2) in zip(P[-1:]+P,P,P[1:]+P):
  k+=1
- if k%100:print(k)
+ print(k)
  for ox, oy in P:
-  # if ox==x or oy==y:continue
-  c = check()
-  if c==2:
+  if check():
    m = max(m, ~abs(x-ox)*~abs(y-oy))
 print(m)
