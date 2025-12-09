@@ -7,5 +7,5 @@ R=Z(zip(P,P[1:]+P,P[2:]+P))
 for A,B,C in R:
  for D in P:
   y=a,b,c,d=Y(*B+D);n=max(n,s:=~(b-a)*~(d-c))
-  if s>m and 1-any(I(*y+Y(*a+b))for a,b,_ in R):m=s
+  if s>m:m=[s,m][any(I(*y+Y(*a+b))for a,b,_ in R)]
 print(n,m)
