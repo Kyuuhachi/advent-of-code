@@ -3,10 +3,11 @@ X=lambda a,c,b,d:~abs(a-b)*~abs(c-d)
 print(max(X(*A,*B)for A in P for B in P))
 Z=sorted
 O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
-def I(A,B,C,D,E,F,G,H):a,c,b,d=Z((A,C))+Z((B,D));e,g,f,h=Z((E,G))+Z((F,H));return[a<E<c,b<F<d][F==H]&[max(f,b)<min(h,d),max(e,a)<min(g,c)][F==H]
+Y=lambda A,B,C,D:Z((A,C))+Z((B,D))
+def I(R,S):a,c,b,d=Y(*R);e,g,f,h=Y(*S);return[a<e<c,b<f<d][f==h]&[max(f,b)<min(h,d),max(e,a)<min(g,c)][f==h]
 m=0
 R=Z(zip(P,P[1:]+P,P[2:]+P))
 for A,B,C in R:
  for D in P:
-  if m<(s:=X(*B,*D))and Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]>0 and 1-any(I(*B,*D,*a,*b)for a,b,_ in R):m=s
+  if m<(s:=X(*B,*D))and Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]>0 and 1-any(I(B+D,a+b)for a,b,_ in R):m=s
 print(m)
