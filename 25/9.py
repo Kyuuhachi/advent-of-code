@@ -1,7 +1,7 @@
 P=[eval(x)for x in open(0)]
 print(max(~(a-b)*~(c-d)for a,c in P for b,d in P))
 Z=sorted
-O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
+O=lambda A,B,C,D,E,F:~(C-A)*~(F-B)-~(D-B)*~(E-A)
 
 def side(a, b, c, d):
  t  = O(*a,*b,*c)
