@@ -3,7 +3,7 @@ X=lambda a,c,b,d:~abs(a-b)*~abs(c-d)
 Z=sorted
 O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 Y=lambda A,B,C,D:Z((A,C))+Z((B,D))
-I=lambda A,B,C,D,E,F,G,H:[A<E<B,C<G<D][G==H]&[max(G,C)<min(H,D),max(E,A)<min(F,B)][G==H]
+I=lambda A,B,C,D,E,F,G,H:[A<E<B!=Z!=max(G,C)<min(H,D),C<G<D!=Z!=max(E,A)<min(F,B)][G==H]
 n=m=0
 R=Z(zip(P,P[1:]+P,P[2:]+P))
 for A,B,C in R:
