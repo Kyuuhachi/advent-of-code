@@ -4,10 +4,10 @@ print(max(X(*A,*B)for A in P for B in P))
 Z=sorted
 O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 
-def segment_intersects_rect(ax,ay,bx,by,cx,cy,dx,dy):
- a,b=Z((cx,dx));c,d=Z((cy,dy))
- if ax == bx:e,f=Z((ay,by));return a<ax<b and max(e,c)<min(f,d)
- else:e,f=Z((ax,bx));return c<ay<d and max(e,a)<min(f,b)
+def I(A,B,C,D,E,F,G,H):
+ a,b=Z((E,G));c,d=Z((F,H))
+ if A == C:e,f=Z((B,D));return a<A<b and max(e,c)<min(f,d)
+ else:e,f=Z((A,C));return c<B<d and max(e,a)<min(f,b)
 
 n=0
 m = 0
@@ -21,7 +21,7 @@ for A,B,C in R:
   if s<=m or Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]<1: continue
   for a,b,_ in R:
    n+=1
-   if segment_intersects_rect(*a,*b,*B,*D):
+   if I(*a,*b,*B,*D):
     break
   else:
     m = s
