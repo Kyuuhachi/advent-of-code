@@ -41,7 +41,7 @@ m = 0
 k=0
 for A,(x,y),B in zip(P[-1:]+P,P,P[1:]+P):
  k+=1
- print(k)
+ print(k,end="\r")
  for ox, oy in P:
   s=~abs(x-ox)*~abs(y-oy)
   if s>m and check():
