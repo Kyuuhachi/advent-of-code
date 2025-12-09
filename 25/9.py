@@ -18,9 +18,6 @@ for A,B,C in R:
  for D in P:
   s=X(*B,*D)
   if s<=m or Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]<1: continue
-  for a,b,_ in R:
-   if I(*a,*b,*B,*D):
-    break
-  else:
-    m = s
+  if any(I(*a,*b,*B,*D)for a,b,_ in R):continue
+  m = s
 print(m)
