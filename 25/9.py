@@ -18,13 +18,14 @@ def segment_intersects_rect(ax,ay,bx,by,cx,cy,dx,dy):
 n=0
 m = 0
 k=0
-for A,B,C in zip(P[-1:]+P,P,P[1:]+P):
+*R,=zip(P[-1:]+P,P,P[1:]+P)
+for A,B,C in R:
  k+=1
  print(k,end="\r")
  for D in P:
   s=X(*B,*D)
   if s<=m or Z((O(*A,*B,*D),O(*B,*C,*D)))[O(*A,*B,*C)>0]<1: continue
-  for a,b in zip(P,P[1:]+P):
+  for a,b,_ in R:
    n+=1
    if segment_intersects_rect(*a,*b,*B,*D):
     break
