@@ -9,5 +9,5 @@ R=Z(zip(P,P[1:]+P,P[2:]+P))
 for A,B,C in R:
  for D in P:
   n=max(n,s:=X(*B+D))
-  if m<s and Z((O(*A+B+D),O(*B+C+D)))[O(*A+B+C)>0]>0 and 1-any(I(*Y(*B+D)+Y(*a+b))for a,b,_ in R):m=s
+  if s-m>0<Z((O(*A+B+D),O(*B+C+D)))[O(*A+B+C)>0]and 1-any(I(*Y(*B+D)+Y(*a+b))for a,b,_ in R):m=s
 print(n,m)
