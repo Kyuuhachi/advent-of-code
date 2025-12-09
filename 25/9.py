@@ -6,7 +6,7 @@ O=lambda A,B,C,D,E,F:(C-A)*(F-B)-(D-B)*(E-A)
 
 def I(A,B,C,D,E,F,G,H):
  a,b=Z((E,G));c,d=Z((F,H))
- if A==C:e,f=Z((B,D));return a<A<b and max(e,c)<min(f,d)
+ if B-D:e,f=Z((B,D));return a<A<b and max(e,c)<min(f,d)
  else:e,f=Z((A,C));return c<B<d and max(e,a)<min(f,b)
 
 m=0
