@@ -1,15 +1,10 @@
+import numpy as np
 for L in open(n:=0):
- A,*B,C=L.split()
- A={i-1 for i,c in enumerate(A)if c=='#'}
- B=[{int(n)for n in x[1:-1].split(",")}for x in B]
- C=[int(n)for n in C[1:-1].split(",")]
- print(A,B,C)
- w=1e9
- for b in range(1<<len(B)):
-  d=A^A
-  for i in range(len(B)):
-   if b>>i&1:d^=B[i]
-  if d==A:w=min(w,b.bit_count())
- print(w)
- n+=w
+ P,*Q,R=L.split()
+ A=np.array([*P][1:-1])<'.'
+ C=np.array(eval(R[1:-1]+","))
+ B=np.zeros((len(Q),len(C)))
+ for q,b in zip(Q,B):b[[*eval(q[1:-1]+",")]]=1
+ m=np.arange(1<<len(B))[:,None]>>np.arange(len(B))&1
+ n+=m[(m@B%2==A).all(axis=1)].sum(axis=1).min()
 print(n)
