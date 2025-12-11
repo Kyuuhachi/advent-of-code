@@ -7,10 +7,7 @@ while G:
  for K in[*G]:
   N=[0]*4
   for V in G[K]:
-   if V in O:
-    a,b,c,d=O[V];N[0]+=a;N[1]+=b;N[2]+=c;N[3]+=d
-    if"fft"==V:N[1]+=a;N[3]+=c
-    if"dac"==V:N[2]+=a;N[3]+=b
+   if V in O:p,q=V=="fft",V=="dac";a,b,c,d=O[V];N[0]+=a;N[1]+=b+a*p;N[2]+=c+a*q;N[3]+=d+c*p+b*q
    else:break
   else:O[K]=N;del G[K]
 print(O["you"][0],O["svr"][3])
