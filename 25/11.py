@@ -1,5 +1,5 @@
 G={}
-for L in open(0):A,*B=L.split();G[A[:-1]]=B
+for L in open(0):G[L[:3]]=L[4:].split()
 O={"out":[1,0,0,0]}
 for K in[*G]*99:
  A=B=C=D=0
