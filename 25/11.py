@@ -1,7 +1,5 @@
 G={}
-for L in open(0):
- A,*B=L.split()
- G[A[:-1]]=B
+for L in open(0):A,*B=L.split();G[A[:-1]]=B
 O={"out":[1,0,0,0]}
 while G:
  for K in[*G]:
