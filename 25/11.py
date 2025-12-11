@@ -2,7 +2,6 @@ G={}
 for L in open(0):
  A,*B=L.split()
  G[A[:-1]]=B
-print(G)
 O={"out":[1,0,0,0]}
 while G:
  for K in[*G]:
@@ -14,6 +13,4 @@ while G:
     if V=="dac":N[2]+=O[V][0];N[3]+=O[V][1]
    else:break
   else:O[K]=N;del G[K]
-for k,v in O.items():print(k,v)
-print(O["you"][0])
-print(O["svr"][3])
+print(O["you"][0],O["svr"][3])
